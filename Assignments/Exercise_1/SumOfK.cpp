@@ -39,7 +39,7 @@ int main() {
 
             // do algorithm
 
-            O(n^2) solution
+            // O(n^2) solution
             int num1;
             int num2;
             bool found = false;
