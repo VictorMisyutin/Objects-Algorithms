@@ -1,0 +1,26 @@
+testFile  4 input and 4 corresponding output files
+Input file in0.txt, Output file out0.txt
+Done
+
+Input file in1.txt, Output file out1.txt
+Done
+
+Input file in2.txt, Output file out2.txt
+Done
+
+Input file in3.txt, Output file out3.txt
+Done
+
+
+Given 4 input files with numbers only
+The program reads content of input file and output numbers 
+from each input file to correponding output file the same numbers 
+with the same order in one line.
+Number of input files may vary. 
+Numbers in input file may vary.
+Number of numbers in input file may vary.
+
+in0.txt -> out0.txt
+in1.txt -> out1.txt
+in2.txt -> out2.txt
+in3.txt -> out3.txt

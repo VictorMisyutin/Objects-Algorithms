@@ -1,0 +1,5 @@
+1 in loop just read from input file3: 1 
+2 in loop just read from input file3: 2.5
+3 in loop just read from input file3: SINGLE LINE 3 4 5 
+4 in loop just read from input file3: LOOP1 6 7 8 9 10
+5 in loop just read from input file3: LOOP11 12 13 14 15 

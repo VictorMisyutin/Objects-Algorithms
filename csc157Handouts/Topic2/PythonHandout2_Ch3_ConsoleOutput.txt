@@ -1,0 +1,53 @@
+How do you feel?
+Just Great
+Let's
+start
+Chapter3 Decision Structures and Boolean Logic
+
+
+Conditional (computer programming): 
+https://en.wikipedia.org/wiki/Conditional_(computer_programming)
+
+Boolean Logic: 
+https://en.wikipedia.org/wiki/Boolean_algebra
+
+
+Relational operators: >,<,>=,<=,==,!=
+Logical Operators:    and, or, not
+A Simple Decision Structure (if Statement)
+
+if condition:
+     statement
+     statement
+     etc.
+
+A Dual Alternative Decision Structure (if-else Statement)
+
+if condition:
+     statement
+     statement
+     etc.
+else:
+     statement
+     statement
+     etc.
+
+Nested Decision Structures and the if-elif-else Statement
+
+if condition_1:
+     statement
+     statement
+     etc.
+elif condition_2:
+     statement
+     statement
+     etc.
+     
+Insert as many elif clauses as necessary...
+
+else:
+     statement
+     statement
+     etc.
+
+Have a nice studies!

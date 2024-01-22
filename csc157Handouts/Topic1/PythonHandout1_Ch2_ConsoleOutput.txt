@@ -1,0 +1,56 @@
+How do you feel?
+Just Great
+OK4
+OK5
+OK6?
+OK7!
+Before running this program you have to install Eclipse using the link from agenda
+You can use different IDE, but it will be your responsibility to make it work
+Python Gaddis 4E Chapter1
+Just read the chapter, it is introduction to Computers and Programming
+Chapter2 - starting programming
+At this point you are already familiar with console output-these output
+Comments are in the text of the program
+Computer programs perform:
+1. input is received.
+2. some process is performed.
+3. output is produced.
+To print single quote'
+I'm here to help
+To print double quote" 
+Another way 
+to print 
+multiple 
+lines
+type(1)   = <class 'int'>
+type(1.0) = <class 'float'>
+var = 3.5 type(var) = <class 'float'>
+input from console
+What is your name? Kamilla
+What is temperature outside? (in Fahrenheit) 32
+Right now temperature outside is 32
+How many dollars in 5 quarters? 1.25
+you are absolutely right
+Expressions
+5//2= 2
+5/2 = 2.5
+Ouput examples
+One Two Three
+OneTwoThree
+One*Two*Three
+One	Two	Three
+Formatted output
+123456789.12345 123,456,789.12
+123456789.12345 123,456,789.123450
+123456789.12345 123,456,789.12
+123456789.12345 123456789.12
+49.000000%
+49%
+123456789
+123,456,789
+           123456789
+         123,456,789
+NAMED_CONSTANTS
+INEREST_RATE= 0.04
+INEREST_RATE= 0.05
+Have a nice studies!

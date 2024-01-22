@@ -1,0 +1,53 @@
+Chapter 5 Functions part 4 math Module
+Read textbook Gaddis 4E, pages 261-268
+Important: import math
+Please input a decimal value: 196
+1. Square root of 196.0 is 14.0
+2. Square root of 196.0 is 14.0
+Page 263 Table 5-2 math Module Functions
+math.pi = 3.141592653589793
+math.e  = 2.718281828459045
+Calculation of
+math.acos( -1.0 )= 3.141592653589793 = 1.0 pi ==  180.0 degrees
+math.acos( -0.5 )= 2.0943951023931957 = 0.6666666666666667 pi ==  120.00000000000001 degrees
+math.acos( 0.0 )= 1.5707963267948966 = 0.5 pi ==  90.0 degrees
+math.acos( 0.5 )= 1.0471975511965979 = 0.33333333333333337 pi ==  60.00000000000001 degrees
+math.acos( 1.0 )= 0.0 = 0.0 pi ==  0.0 degrees
+math.acos( 0.8660254037844386 )= 0.5235987755982989 = 0.16666666666666669 pi ==  30.000000000000004 degrees
+math.acos( -0.8660254037844386 )= 2.6179938779914944 = 0.8333333333333334 pi ==  150.0 degrees
+acos(x), returns the arc cosine of x, in radians. Enter x such as -1<=x<=1: 0.5
+acos( 0.5 )= 1.0471975511965979 = 0.33333333333333337 pi
+asin(x), returns the arc sine of x, in radians. Enter x such as -1<=x<=1: -0.5
+asin( -0.5 )= -0.5235987755982989 = -0.16666666666666669 pi
+atan(x), returns the arc tangent of x, in radians. Enter x such as x is decimal : 1
+atan( 1.0 )= 0.7853981633974483 = 0.25 pi
+You can analyse and test other math functions, I leave it to you as ToDo(no grade)
+math functions:
+ceil(x) Returns the smallest integer that is greater than or equal to x.
+cos(x) Return the cosine of x in radians.
+degrees(x) Assuming x is an angle in radian, the function returns the angle converted to degrees-tested above.
+exp(x)   Return e^x
+floor(x) Returns the largest integer that is less than or equal to x.
+hypot(x,y) Returns the length of a hypotenuse that extends from (0,0) to (x,y).
+log(x) Returns the natural logarithm of x.
+log10(x) Returns the base-10 logarithm of x.
+radians(x) Assuming x is an angle in degrees, the function returns the angle converted to radians.
+radians( 90 )= 1.5707963267948966
+sin(x) Returns the sine of x in radians
+sqrt(x) Returns the square root of x.
+tan(x) Returns the tangent of x in radians. x cannot be the values when cos(x) is 0, that is x!=pi/2+N*pi, where N is integer
+exact tan(pi/2) does not exist, but here it is approximation, it must be a huge number
+90.0 degrees=pi/2= 1.5707963267948966
+tan(pi/2)= 1.633123935319537e+16
+tan( 1.5707963267948966 )= 1.633123935319537e+16  must be huge number
+45.0 degrees=pi/4= 0.7853981633974483
+tan(pi/4)= 0.9999999999999999
+tan( 0.7853981633974483 )= 0.9999999999999999
+60.0 degrees=pi/3= 1.0471975511965976
+tan(pi/3)= 1.7320508075688767
+tan( 1.0471975511965976 )= 1.7320508075688767
+30.0 degrees=pi/6= 0.5235987755982988
+tan(pi/6)= 0.5773502691896257
+tan( 0.5235987755982988 )= 0.5773502691896257
+calculating tan(x), Enter x (in radians): 1
+tan( 1.0 )= 1.5574077246549023 = 0.4957382755766584 pi= 57.29577951308232
