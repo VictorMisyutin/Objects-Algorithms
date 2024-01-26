@@ -19,6 +19,7 @@ int main() {
 
             // get target num
             getline(inFile, line);
+            
             target = stoi(line);
 
             // convert numbers to array
@@ -31,8 +32,15 @@ int main() {
             for (int i = 0; i < line.length(); ++i) {
                 if (line[i] == ' ' || i == line.length() - 1) {
                     string numStr = line.substr(startPos, i - startPos + 1);
-                    int num = stoi(numStr);
-                    numbers.push_back(num);
+                    try {
+                        // Attempt to convert numStr to an integer using std::stoi
+                        int num = std::stoi(numStr);
+                        numbers.push_back(num);
+                    } catch (const std::invalid_argument& e) {
+                        // Handle the case where numStr is not a valid number
+                        std::cout << "Invalid number: " << numStr << std::endl;
+                        // You can choose to skip the invalid number or handle the error as needed
+                    }
                     startPos = i + 1;
                 }
             }
