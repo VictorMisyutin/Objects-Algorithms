@@ -1,4 +1,0 @@
-Diary of Kamilla
-1.topic 1
-2.topic 2.5
-just read from input file single line: SINGLE LINE 3 4 5 
