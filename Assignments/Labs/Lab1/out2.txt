@@ -1,0 +1,10 @@
+18
+Before Sorting
+SumOfK
+5 12 16 10 11 7 4 3 5 5 3 1 2 1 
+After Sorting
+SumOfK
+1 1 2 3 3 4 5 5 5 7 10 11 12 16 
+Calculation O(N) in Lab1 after sorting
+Yes
+2+16=18
