@@ -1,0 +1,9 @@
+1
+Before Sorting
+SumOfK
+5 12 8 10 7 4 3 5 5 3 2 1 
+After Sorting
+SumOfK
+1 2 3 3 4 5 5 5 7 8 10 12 
+Calculation O(N) in Lab1 after sorting
+No
