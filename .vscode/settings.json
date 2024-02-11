@@ -7,3 +7,10 @@
         "utility": "cpp"
     }
 }
+{
+    "files.associations": {
+        "iosfwd": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
+    }
+}
