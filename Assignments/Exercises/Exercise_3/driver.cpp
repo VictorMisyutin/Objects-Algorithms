@@ -7,7 +7,7 @@
 using namespace std;
 
 int hashFunction(int key) {
-    return key;
+    return 2*key;
 }
 
 void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
