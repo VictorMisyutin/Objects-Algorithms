@@ -1,0 +1,40 @@
+Exercise3 Linear Probing, Quadratic Probing, Double Hashing Probing, Collisions.
+
+Your input file has sequence of numbers (random order). 
+The Table is size 11 and 
+Double Factor is 7, 
+hash function is hash(Key)=key,
+value = 2*key.
+
+For Exercise3 you have to calculate by hand Linear probing, Quadratic Probing and Double Hasing Probing and 
+calculate collisions and tables for numbers from input file in5.txt (random order), then start sort the numbers
+in ascending order and calculate collisions and tables again. third time, sort the numbers in decreasing order and
+calculate collisions and tables again.
+
+In each time you have to create three new hash tables and put all keys and their values into the hash tables, retrieve
+the values, check that the values are correct, and type results including collision counts. When putting keys and values 
+in a hash table, set value that is equal to key*2. When getting the values by the keys, check that the retrieved value is
+equal to key*2 Calculate the count of collisions separately for each pass and for Linear Probing, for Quadratic Probing and
+for Double Hashing Probing. The collision count shall be initialized to zero in the hash class in the beginning of each probing
+and incremented every time a collision happens in get or put functions.
+
+Please see probing-collisions-example with detailed explanation in Topic3ProbingCollisions_Example.pdf for random order.
+For input from 
+in_example.txt file output files are  
+out_example_collisions.txt and 
+out_example_tables.txt
+
+So you shall calculate collisions and output tables 3 times: for random order, for increasing order, for decreasing order.
+For your self-test here data for inputs and outputs
+input from in1.txt file output files are out1_collisions.txt and out2_tables.txt
+input from in2.txt file output files are out1_collisions.txt and out2_tables.txt
+input from in3.txt file output files are out1_collisions.txt and out3_tables.txt
+input from in4.txt file output files are out1_collisions.txt and out4_tables.txt
+input from in5.txt file output files are not provided, it is for you to figure out.
+
+
+Submit pdf file with your solution similar to Topic3ProbingCollisions_Example.pdf (the example is for random order only).
+You have to provided solution for (in5.txt) random order(given), ascending order(sort it), descending order(sort it).
+Show steps how you solve it.
+
+

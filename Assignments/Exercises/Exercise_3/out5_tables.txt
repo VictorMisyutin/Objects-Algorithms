@@ -1,0 +1,149 @@
+*** Linear probing Random Order Start ***
+
+print table.size()=11
+index=0 key=111 value=222
+index=1 key=35 value=70
+index=2 key=25 value=50
+index=3 key=5 value=10
+index=4 key=67 value=134
+index=5 key=138 value=276
+index=6 key=414 value=828
+index=7 key=59 value=118
+index=8 key=37 value=74
+
+Linear probing 21 collisions
+
+*** Linear probing Random Order End ***
+
+*** Quadratic probing Random Order Start ***
+
+print table.size()=11
+index=0 key=37 value=74
+index=1 key=111 value=222
+index=2 key=35 value=70
+index=3 key=25 value=50
+index=4 key=5 value=10
+index=5 key=67 value=134
+index=6 key=138 value=276
+index=7 key=414 value=828
+index=8 key=59 value=118
+
+Quadratic probing 13 collisions
+
+*** Quadratic probing Random Order End ***
+
+*** Double Hashing  probing Random Order Start ***
+
+print table.size()=11
+index=0 key=59 value=118
+index=1 key=414 value=828
+index=2 key=111 value=222
+index=3 key=67 value=134
+index=4 key=5 value=10
+index=5 key=138 value=276
+index=6 key=35 value=70
+
+Double Hashing probing 8 collisions
+
+*** Double Hashing probing Random Order End ***
+
+*** Linear probing Random Order Start ***
+
+print table.size()=11
+index=0 key=37 value=74
+index=1 key=111 value=222
+index=2 key=35 value=70
+index=3 key=25 value=50
+index=4 key=5 value=10
+index=5 key=67 value=134
+index=6 key=138 value=276
+index=7 key=414 value=828
+index=8 key=59 value=118
+index=9 key=37 value=74
+
+Linear probing 15 collisions
+
+*** Linear probing Random Order End ***
+
+*** Quadratic probing Random Order Start ***
+
+print table.size()=11
+index=0 key=37 value=74
+index=1 key=111 value=222
+index=2 key=35 value=70
+index=3 key=25 value=50
+index=4 key=5 value=10
+index=5 key=67 value=134
+index=6 key=138 value=276
+index=7 key=414 value=828
+index=8 key=59 value=118
+
+Quadratic probing 6 collisions
+
+*** Quadratic probing Random Order End ***
+
+*** Double Hashing  probing Random Order Start ***
+
+print table.size()=11
+index=0 key=59 value=118
+index=1 key=414 value=828
+index=2 key=111 value=222
+index=3 key=67 value=134
+index=4 key=5 value=10
+index=5 key=138 value=276
+index=6 key=35 value=70
+
+Double Hashing probing 10 collisions
+
+*** Double Hashing probing Random Order End ***
+
+*** Linear probing Random Order Start ***
+
+print table.size()=11
+index=0 key=37 value=74
+index=1 key=111 value=222
+index=2 key=35 value=70
+index=3 key=25 value=50
+index=4 key=5 value=10
+index=5 key=67 value=134
+index=6 key=138 value=276
+index=7 key=414 value=828
+index=8 key=59 value=118
+index=9 key=37 value=74
+
+Lienar probing 15 collisions
+
+*** Linear probing Random Order End ***
+
+*** Quadratic probing Random Order Start ***
+
+print table.size()=11
+index=0 key=37 value=74
+index=1 key=111 value=222
+index=2 key=35 value=70
+index=3 key=25 value=50
+index=4 key=5 value=10
+index=5 key=67 value=134
+index=6 key=138 value=276
+index=7 key=414 value=828
+index=8 key=59 value=118
+
+Quadratic probing 10 collisions
+
+*** Quadratic probing Random Order End ***
+
+*** Double Hashing  probing Random Order Start ***
+
+print table.size()=11
+index=0 key=59 value=118
+index=1 key=414 value=828
+index=2 key=111 value=222
+index=3 key=67 value=134
+index=4 key=5 value=10
+index=5 key=138 value=276
+index=6 key=35 value=70
+
+Double Hashing probing 16 collisions
+
+*** Double Hashing probing Random Order End ***
+

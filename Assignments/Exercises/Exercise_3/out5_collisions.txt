@@ -1,0 +1,120 @@
+*** Random Order Start ***
+
+Linear Probing
+5 : 10 -> 10, collisions: 0
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 3
+25 : 50 -> 50, collisions: 4
+35 : 70 -> 70, collisions: 5
+67 : 134 -> 134, collisions: 10
+59 : 118 -> 118, collisions: 15
+37 : 74 -> 74, collisions: 21
+
+Quadratic Probing
+5 : 10 -> 10, collisions: 0
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 3
+25 : 50 -> 50, collisions: 4
+35 : 70 -> 70, collisions: 5
+67 : 134 -> 134, collisions: 7
+59 : 118 -> 118, collisions: 9
+37 : 74 -> 74, collisions: 13
+
+Double Hashing Probing
+5 : 10 -> 10, collisions: 0
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 4
+25 : 50 -> 50, collisions: 4
+35 : 70 -> 70, collisions: 5
+67 : 134 -> 134, collisions: 6
+59 : 118 -> 118, collisions: 8
+37 : 74 -> 74, collisions: 8
+
+Linear: 21collisions
+Quadratic: 13collisions
+Double: 8collisions
+
+*** Random Order End ***
+*** Ascending Order Start ***
+
+Linear Probing
+5 : 10 -> 10, collisions: 0
+25 : 50 -> 50, collisions: 1
+35 : 70 -> 70, collisions: 2
+37 : 74 -> 74, collisions: 2
+59 : 118 -> 118, collisions: 4
+67 : 134 -> 134, collisions: 5
+111 : 222 -> 222, collisions: 11
+138 : 276 -> 276, collisions: 13
+414 : 828 -> 828, collisions: 15
+
+Quadratic Probing
+5 : 10 -> 10, collisions: 0
+25 : 50 -> 50, collisions: 0
+35 : 70 -> 70, collisions: 1
+37 : 74 -> 74, collisions: 1
+59 : 118 -> 118, collisions: 3
+67 : 134 -> 134, collisions: 3
+111 : 222 -> 222, collisions: 4
+138 : 276 -> 276, collisions: 5
+414 : 828 -> 828, collisions: 6
+
+Double Hashing Probing
+5 : 10 -> 10, collisions: 0
+25 : 50 -> 50, collisions: 1
+35 : 70 -> 70, collisions: 2
+37 : 74 -> 74, collisions: 2
+59 : 118 -> 118, collisions: 3
+67 : 134 -> 134, collisions: 4
+111 : 222 -> 222, collisions: 5
+138 : 276 -> 276, collisions: 7
+414 : 828 -> 828, collisions: 10
+
+Linear: 15collisions
+Quadratic: 6collisions
+Double: 10collisions
+
+*** Ascending Order End ***
+*** Descending Order Start ***
+
+Linear Probing
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 3
+67 : 134 -> 134, collisions: 5
+59 : 118 -> 118, collisions: 6
+37 : 74 -> 74, collisions: 6
+35 : 70 -> 70, collisions: 8
+25 : 50 -> 50, collisions: 11
+5 : 10 -> 10, collisions: 15
+
+Quadratic Probing
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 3
+67 : 134 -> 134, collisions: 5
+59 : 118 -> 118, collisions: 6
+37 : 74 -> 74, collisions: 6
+35 : 70 -> 70, collisions: 7
+25 : 50 -> 50, collisions: 8
+5 : 10 -> 10, collisions: 10
+
+Double Hashing Probing
+414 : 828 -> 828, collisions: 1
+138 : 276 -> 276, collisions: 2
+111 : 222 -> 222, collisions: 4
+67 : 134 -> 134, collisions: 5
+59 : 118 -> 118, collisions: 8
+37 : 74 -> 74, collisions: 9
+35 : 70 -> 70, collisions: 15
+25 : 50 -> 50, collisions: 15
+5 : 10 -> 10, collisions: 16
+
+Linear: 15collisions
+Quadratic: 10collisions
+Double: 16collisions
+
+*** Descending Order End ***

@@ -1,0 +1,111 @@
+*** Random Order Start ***
+
+Linear Probing
+11 : 22 -> 22, collisions: 1
+44 : 88 -> 88, collisions: 3
+67 : 134 -> 134, collisions: 5
+86 : 172 -> 172, collisions: 6
+34 : 68 -> 68, collisions: 9
+26 : 52 -> 52, collisions: 10
+39 : 78 -> 78, collisions: 11
+84 : 168 -> 168, collisions: 12
+
+Quadratic Probing
+11 : 22 -> 22, collisions: 1
+44 : 88 -> 88, collisions: 3
+67 : 134 -> 134, collisions: 4
+86 : 172 -> 172, collisions: 5
+34 : 68 -> 68, collisions: 7
+26 : 52 -> 52, collisions: 9
+39 : 78 -> 78, collisions: 10
+84 : 168 -> 168, collisions: 11
+
+Double Hashing Probing
+11 : 22 -> 22, collisions: 1
+44 : 88 -> 88, collisions: 2
+67 : 134 -> 134, collisions: 3
+86 : 172 -> 172, collisions: 5
+34 : 68 -> 68, collisions: 6
+26 : 52 -> 52, collisions: 7
+39 : 78 -> 78, collisions: 7
+84 : 168 -> 168, collisions: 9
+
+Linear: 12collisions
+Quadratic: 11collisions
+Double: 9collisions
+
+*** Random Order End ***
+*** Ascending Order Start ***
+
+Linear Probing
+11 : 22 -> 22, collisions: 1
+26 : 52 -> 52, collisions: 1
+34 : 68 -> 68, collisions: 1
+39 : 78 -> 78, collisions: 2
+44 : 88 -> 88, collisions: 4
+67 : 134 -> 134, collisions: 6
+84 : 168 -> 168, collisions: 7
+86 : 172 -> 172, collisions: 8
+
+Quadratic Probing
+11 : 22 -> 22, collisions: 1
+26 : 52 -> 52, collisions: 2
+34 : 68 -> 68, collisions: 4
+39 : 78 -> 78, collisions: 5
+44 : 88 -> 88, collisions: 8
+67 : 134 -> 134, collisions: 11
+84 : 168 -> 168, collisions: 12
+86 : 172 -> 172, collisions: 17
+
+Double Hashing Probing
+11 : 22 -> 22, collisions: 1
+26 : 52 -> 52, collisions: 2
+34 : 68 -> 68, collisions: 3
+39 : 78 -> 78, collisions: 4
+44 : 88 -> 88, collisions: 5
+67 : 134 -> 134, collisions: 5
+84 : 168 -> 168, collisions: 7
+86 : 172 -> 172, collisions: 9
+
+Linear: 8collisions
+Quadratic: 17collisions
+Double: 9collisions
+
+*** Ascending Order End ***
+*** Descending Order Start ***
+
+Linear Probing
+86 : 172 -> 172, collisions: 1
+84 : 168 -> 168, collisions: 2
+67 : 134 -> 134, collisions: 2
+44 : 88 -> 88, collisions: 3
+39 : 78 -> 78, collisions: 4
+34 : 68 -> 68, collisions: 5
+26 : 52 -> 52, collisions: 6
+11 : 22 -> 22, collisions: 9
+
+Quadratic Probing
+86 : 172 -> 172, collisions: 1
+84 : 168 -> 168, collisions: 1
+67 : 134 -> 134, collisions: 2
+44 : 88 -> 88, collisions: 3
+39 : 78 -> 78, collisions: 4
+34 : 68 -> 68, collisions: 6
+26 : 52 -> 52, collisions: 7
+11 : 22 -> 22, collisions: 10
+
+Double Hashing Probing
+86 : 172 -> 172, collisions: 1
+84 : 168 -> 168, collisions: 3
+67 : 134 -> 134, collisions: 4
+44 : 88 -> 88, collisions: 5
+39 : 78 -> 78, collisions: 6
+34 : 68 -> 68, collisions: 7
+26 : 52 -> 52, collisions: 8
+11 : 22 -> 22, collisions: 12
+
+Linear: 9collisions
+Quadratic: 10collisions
+Double: 12collisions
+
+*** Descending Order End ***
