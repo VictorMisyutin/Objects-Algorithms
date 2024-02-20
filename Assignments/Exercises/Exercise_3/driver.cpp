@@ -6,12 +6,12 @@
 
 using namespace std;
 
-int hash_function(int key) {
+int hashFunction(int key) {
     return key;
 }
 
 void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
+    int index = hashFunction(key);
     while (table[index].first != -1) {
         index = (index + 1) % table.size();
         collisions++;
@@ -20,8 +20,8 @@ void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, in
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
-void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
+void quadraticProbingInsert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
+    int index = hashFunction(key);
     int i = 1;
     while (table[index].first != -1) {
         index = (index + i * i) % table.size(); 
@@ -32,14 +32,14 @@ void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value,
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
-int double_factor(int key) {
+int doubleFactor(int key) {
     int doubleFactor = 7;
     return doubleFactor - (key % doubleFactor);
 }
 
-void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
-    int step = double_factor(key);
+void doubleHashingInsert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
+    int index = hashFunction(key);
+    int step = doubleFactor(key);
     while (table[index].first != -1) {
         index = (index + step) % table.size(); 
         collisions++;
@@ -48,7 +48,7 @@ void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, in
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
-void print_table(const vector<pair<int, int>>& table, ofstream& outputFile) {
+void printTable(const vector<pair<int, int>>& table, ofstream& outputFile) {
     int count = 0;
     outputFile << "print table.size()=" << table.size() << endl;
     for (const auto& entry : table) {
@@ -64,7 +64,7 @@ struct ProcessResult {
     vector<pair<int, int>> hash_tables[3];
 };
 
-ProcessResult process_numbers(const vector<int>& numbers, ofstream& outputFile) {
+ProcessResult processNumbers(const vector<int>& numbers, ofstream& outputFile) {
     int table_size = 11;
 
     ProcessResult result;
@@ -86,7 +86,7 @@ ProcessResult process_numbers(const vector<int>& numbers, ofstream& outputFile) 
     for (int num : numbers) {
         int key = num;
         int value = 2 * num;
-        quadratic_probing_insert(result.hash_tables[1], key, value, result.collisions[1], outputFile);
+        quadraticProbingInsert(result.hash_tables[1], key, value, result.collisions[1], outputFile);
     }
 
     outputFile << "\nDouble Hashing Probing" << endl;
@@ -94,7 +94,7 @@ ProcessResult process_numbers(const vector<int>& numbers, ofstream& outputFile) 
     for (int num : numbers) {
         int key = num;
         int value = 2 * num;
-        double_hashing_insert(result.hash_tables[2], key, value, result.collisions[2], outputFile);
+        doubleHashingInsert(result.hash_tables[2], key, value, result.collisions[2], outputFile);
     }
 
     outputFile << endl;
@@ -123,7 +123,7 @@ int main() {
 
             // collision file
         collisionFile << "*** Random Order Start ***\n" << endl;
-        ProcessResult randomResult = process_numbers(numbers, collisionFile);
+        ProcessResult randomResult = processNumbers(numbers, collisionFile);
         vector<pair<int, int>>* hash_tables_random = &randomResult.hash_tables[0];
         collisionFile << "\n*** Random Order End ***" << endl;
 
@@ -131,19 +131,19 @@ int main() {
 
                 // Linear probing
         tableFile << "*** Linear probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_random[0], tableFile);
+        printTable(hash_tables_random[0], tableFile);
         tableFile << "\nLinear probing " << randomResult.collisions[0] << " collisions" <<endl;
         tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
                 
                 // Quadratic probing
         tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_random[1], tableFile);
+        printTable(hash_tables_random[1], tableFile);
         tableFile << "\nQuadratic probing " << randomResult.collisions[1] << " collisions" <<endl;
         tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
 
                 // Double Hashing probing
         tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_random[2], tableFile);
+        printTable(hash_tables_random[2], tableFile);
         tableFile << "\nDouble Hashing probing " << randomResult.collisions[2] << " collisions" <<endl;
         tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
 
@@ -155,7 +155,7 @@ int main() {
             // collision file
         collisionFile << "*** Ascending Order Start ***\n" << endl;
         sort(numbers.begin(), numbers.end());
-        ProcessResult ascResult = process_numbers(numbers, collisionFile);
+        ProcessResult ascResult = processNumbers(numbers, collisionFile);
         vector<pair<int, int>>* hash_tables_asc = &randomResult.hash_tables[0];
         collisionFile << "\n*** Ascending Order End ***" << endl;
 
@@ -163,19 +163,19 @@ int main() {
             
                 // Linear probing
         tableFile << "*** Linear probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_asc[0], tableFile);
+        printTable(hash_tables_asc[0], tableFile);
         tableFile << "\nLinear probing " << ascResult.collisions[0] << " collisions" <<endl;
         tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
                 
                 // Quadratic probing
         tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_asc[1], tableFile);
+        printTable(hash_tables_asc[1], tableFile);
         tableFile << "\nQuadratic probing " << ascResult.collisions[1] << " collisions" <<endl;
         tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
 
                 // Double Hashing probing
         tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_asc[2], tableFile);
+        printTable(hash_tables_asc[2], tableFile);
         tableFile << "\nDouble Hashing probing " << ascResult.collisions[2] << " collisions" <<endl;
         tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
 
@@ -186,7 +186,7 @@ int main() {
             // collision file
         collisionFile << "*** Descending Order Start ***\n" << endl;
         reverse(numbers.begin(), numbers.end());
-        ProcessResult descResult = process_numbers(numbers, collisionFile);
+        ProcessResult descResult = processNumbers(numbers, collisionFile);
         vector<pair<int, int>>* hash_tables_desc = &randomResult.hash_tables[0];
         collisionFile << "\n*** Descending Order End ***" << endl;
 
@@ -194,19 +194,19 @@ int main() {
             
                 // Linear probing
         tableFile << "*** Linear probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_desc[0], tableFile);
+        printTable(hash_tables_desc[0], tableFile);
         tableFile << "\nLienar probing " << descResult.collisions[0] << " collisions" <<endl;
         tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
                 
                 // Quadratic probing
         tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_desc[1], tableFile);
+        printTable(hash_tables_desc[1], tableFile);
         tableFile << "\nQuadratic probing " << descResult.collisions[1] << " collisions" <<endl;
         tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
 
                 // Double Hashing probing
         tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
-        print_table(hash_tables_desc[2], tableFile);
+        printTable(hash_tables_desc[2], tableFile);
         tableFile << "\nDouble Hashing probing " << descResult.collisions[2] << " collisions" <<endl;
         tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
 
