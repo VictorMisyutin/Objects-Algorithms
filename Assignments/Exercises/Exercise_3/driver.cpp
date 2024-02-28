@@ -12,6 +12,7 @@ int hash_function(int key) {
 
 void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
     int index = hash_function(key);
+    index = index % table.size();
     while (table[index].first != -1) {
         index = (index + 1) % table.size();
         collisions++;
@@ -22,6 +23,7 @@ void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, in
 
 void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
     int index = hash_function(key);
+    index = index % table.size();
     int i = 1;
     while (table[index].first != -1) {
         index = (index + i * i) % table.size(); 
@@ -39,6 +41,7 @@ int double_factor(int key) {
 
 void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
     int index = hash_function(key);
+    index = index % table.size();
     int step = double_factor(key);
     while (table[index].first != -1) {
         index = (index + step) % table.size(); 
@@ -69,6 +72,9 @@ ProcessResult process_numbers(const vector<int>& numbers, ofstream& outputFile) 
 
     ProcessResult result;
     result.collisions.resize(3);
+    result.collisions[0] = 0;
+    result.collisions[1] = 0;
+    result.collisions[2] = 0;
 
     for (int i = 0; i < 3; ++i) {
         result.hash_tables[i].resize(table_size, make_pair(-1, -1));
