@@ -20,6 +20,7 @@ Quadratic Probing
 5 : 10 -> 10, collisions: 2
 43 : 86 -> 86, collisions: 5
 49 : 98 -> 98, collisions: 6
+<<<<<<< HEAD
 39 : 78 -> 78, collisions: 9
 
 Double Hashing Probing
@@ -118,3 +119,16 @@ Quadratic: 8collisions
 Double: 9collisions
 
 *** Descending Order End ***
+=======
+39 : 78 -> 78, collisions: 7
+
+Quadratic Probing
+32 : 64 -> 64, collisions: 2
+44 : 88 -> 88, collisions: 3
+18 : 36 -> 36, collisions: 4
+12 : 24 -> 24, collisions: 5
+21 : 42 -> 42, collisions: 9
+5 : 10 -> 10, collisions: 9
+43 : 86 -> 86, collisions: 14
+49 : 98 -> 98, collisions: 92697
+>>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732

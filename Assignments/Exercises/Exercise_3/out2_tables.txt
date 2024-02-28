@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *** Linear probing Random Order Start ***
 
 print table.size()=11
@@ -151,3 +152,5 @@ Double Hashing probing 9 collisions
 
 *** Double Hashing probing Random Order End ***
 
+=======
+>>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732
