@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -22,11 +23,12 @@ void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, in
 }
 
 void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
-    index = index % table.size();
+    int startingHash = hash_function(key);
+    startingHash = startingHash % table.size();
+    int index = startingHash;
     int i = 1;
     while (table[index].first != -1) {
-        index = (index + i * i) % table.size(); 
+        index = (startingHash + i * i) % table.size(); 
         i++;
         collisions++;
     }
@@ -40,12 +42,13 @@ int double_factor(int key) {
 }
 
 void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
-    index = index % table.size();
-    int step = double_factor(key); 
+    int startingHash = hash_function(key);
+    startingHash = startingHash % table.size();
+    int index = startingHash;
+    int step = double_factor(key);
     int count = 1;
     while (table[index].first != -1) {
-        index = (index + count*step) % table.size(); 
+        index = (startingHash + count*step) % table.size(); 
         collisions++;
         count++;
     }
@@ -117,8 +120,10 @@ int main() {
         ifstream file("in" + to_string(i) + ".txt");
         vector<int> numbers;
         int num;
+        int size = 0;
         while (file >> num) {
             numbers.push_back(num);
+            size++;
         }
         file.close();
 
@@ -158,11 +163,15 @@ int main() {
 
         // ascending order
         
+        for (int i = 0; i < size - 1; i++) {
+            for (int j = 0; j < size - i - 1; j++) 
+                if (numbers[j] > numbers[j + 1]) 
+                    swap(numbers[j], numbers[j + 1]);
+        }
             // collision file
         collisionFile << "*** Ascending Order Start ***\n" << endl;
-        sort(numbers.begin(), numbers.end());
         ProcessResult ascResult = processNumbers(numbers, collisionFile);
-        vector<pair<int, int>>* hash_tables_asc = &randomResult.hash_tables[0];
+        vector<pair<int, int>>* hash_tables_asc = &ascResult.hash_tables[0];
         collisionFile << "\n*** Ascending Order End ***" << endl;
 
             // table file
@@ -189,11 +198,12 @@ int main() {
 
 
         // descending order
+        std::reverse(numbers.begin(), numbers.end());    
             // collision file
+
         collisionFile << "*** Descending Order Start ***\n" << endl;
-        reverse(numbers.begin(), numbers.end());
         ProcessResult descResult = processNumbers(numbers, collisionFile);
-        vector<pair<int, int>>* hash_tables_desc = &randomResult.hash_tables[0];
+        vector<pair<int, int>>* hash_tables_desc = &descResult.hash_tables[0];
         collisionFile << "\n*** Descending Order End ***" << endl;
 
             // table file

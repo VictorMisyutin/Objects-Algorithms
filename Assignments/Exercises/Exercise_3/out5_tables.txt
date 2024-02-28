@@ -21,14 +21,14 @@ print table.size()=11
 index=1 key=111 value=222
 index=2 key=35 value=70
 index=3 key=25 value=50
-index=4 key=67 value=134
+index=4 key=59 value=118
 index=5 key=5 value=10
 index=6 key=138 value=276
 index=7 key=414 value=828
-index=9 key=59 value=118
-index=10 key=37 value=74
+index=8 key=37 value=74
+index=10 key=67 value=134
 
-Quadratic probing 13 collisions
+Quadratic probing 5 collisions
 
 *** Quadratic probing Random Order End ***
 
@@ -52,15 +52,15 @@ Double Hashing probing 3 collisions
 *** Linear probing Ascending Order Start ***
 
 print table.size()=11
-index=1 key=111 value=222
+index=1 key=67 value=134
 index=2 key=35 value=70
 index=3 key=25 value=50
-index=4 key=67 value=134
+index=4 key=37 value=74
 index=5 key=5 value=10
-index=6 key=138 value=276
-index=7 key=414 value=828
-index=8 key=59 value=118
-index=9 key=37 value=74
+index=6 key=59 value=118
+index=7 key=111 value=222
+index=8 key=138 value=276
+index=9 key=414 value=828
 
 Linear probing 12 collisions
 
@@ -69,34 +69,34 @@ Linear probing 12 collisions
 *** Quadratic probing Ascending Order Start ***
 
 print table.size()=11
-index=1 key=111 value=222
+index=1 key=67 value=134
 index=2 key=35 value=70
 index=3 key=25 value=50
-index=4 key=67 value=134
+index=4 key=37 value=74
 index=5 key=5 value=10
 index=6 key=138 value=276
 index=7 key=414 value=828
-index=9 key=59 value=118
-index=10 key=37 value=74
+index=8 key=59 value=118
+index=10 key=111 value=222
 
-Quadratic probing 6 collisions
+Quadratic probing 5 collisions
 
 *** Quadratic probing Ascending Order End ***
 
 *** Double Hashing  probing Ascending Order Start ***
 
 print table.size()=11
-index=1 key=111 value=222
+index=1 key=67 value=134
 index=2 key=35 value=70
 index=3 key=25 value=50
-index=4 key=67 value=134
+index=4 key=37 value=74
 index=5 key=5 value=10
-index=6 key=138 value=276
+index=6 key=111 value=222
 index=7 key=414 value=828
 index=8 key=59 value=118
-index=9 key=37 value=74
+index=10 key=138 value=276
 
-Double Hashing probing 7 collisions
+Double Hashing probing 8 collisions
 
 *** Double Hashing probing Ascending Order End ***
 
@@ -104,14 +104,14 @@ Double Hashing probing 7 collisions
 
 print table.size()=11
 index=1 key=111 value=222
-index=2 key=35 value=70
-index=3 key=25 value=50
-index=4 key=67 value=134
-index=5 key=5 value=10
+index=2 key=67 value=134
+index=3 key=35 value=70
+index=4 key=59 value=118
+index=5 key=37 value=74
 index=6 key=138 value=276
 index=7 key=414 value=828
-index=8 key=59 value=118
-index=9 key=37 value=74
+index=8 key=25 value=50
+index=9 key=5 value=10
 
 Lienar probing 12 collisions
 
@@ -121,16 +121,16 @@ Lienar probing 12 collisions
 
 print table.size()=11
 index=1 key=111 value=222
-index=2 key=35 value=70
-index=3 key=25 value=50
-index=4 key=67 value=134
-index=5 key=5 value=10
+index=2 key=67 value=134
+index=3 key=35 value=70
+index=4 key=59 value=118
+index=5 key=37 value=74
 index=6 key=138 value=276
 index=7 key=414 value=828
-index=9 key=59 value=118
-index=10 key=37 value=74
+index=8 key=25 value=50
+index=9 key=5 value=10
 
-Quadratic probing 7 collisions
+Quadratic probing 9 collisions
 
 *** Quadratic probing Descending Order End ***
 

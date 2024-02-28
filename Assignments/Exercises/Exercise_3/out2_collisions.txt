@@ -29,13 +29,13 @@ Double Hashing Probing
 12 : 24 -> 24, collisions: 0
 21 : 42 -> 42, collisions: 1
 5 : 10 -> 10, collisions: 1
-43 : 86 -> 86, collisions: 4
-49 : 98 -> 98, collisions: 6
-39 : 78 -> 78, collisions: 7
+43 : 86 -> 86, collisions: 7
+49 : 98 -> 98, collisions: 9
+39 : 78 -> 78, collisions: 10
 
 Linear: 10 collisions
 Quadratic: 9 collisions
-Double: 7 collisions
+Double: 10 collisions
 
 *** Random Order End ***
 *** Ascending Order Start ***
@@ -59,8 +59,8 @@ Quadratic Probing
 32 : 64 -> 64, collisions: 1
 39 : 78 -> 78, collisions: 1
 43 : 86 -> 86, collisions: 3
-44 : 88 -> 88, collisions: 6
-49 : 98 -> 98, collisions: 9
+44 : 88 -> 88, collisions: 5
+49 : 98 -> 98, collisions: 7
 
 Double Hashing Probing
 5 : 10 -> 10, collisions: 0
@@ -69,12 +69,12 @@ Double Hashing Probing
 21 : 42 -> 42, collisions: 0
 32 : 64 -> 64, collisions: 1
 39 : 78 -> 78, collisions: 1
-43 : 86 -> 86, collisions: 5
-44 : 88 -> 88, collisions: 5
+43 : 86 -> 86, collisions: 3
+44 : 88 -> 88, collisions: 6
 49 : 98 -> 98, collisions: 8
 
 Linear: 10 collisions
-Quadratic: 9 collisions
+Quadratic: 7 collisions
 Double: 8 collisions
 
 *** Ascending Order End ***
@@ -100,7 +100,7 @@ Quadratic Probing
 21 : 42 -> 42, collisions: 5
 18 : 36 -> 36, collisions: 5
 12 : 24 -> 24, collisions: 5
-5 : 10 -> 10, collisions: 8
+5 : 10 -> 10, collisions: 7
 
 Double Hashing Probing
 49 : 98 -> 98, collisions: 0
@@ -108,13 +108,13 @@ Double Hashing Probing
 43 : 86 -> 86, collisions: 0
 39 : 78 -> 78, collisions: 0
 32 : 64 -> 64, collisions: 1
-21 : 42 -> 42, collisions: 3
-18 : 36 -> 36, collisions: 3
-12 : 24 -> 24, collisions: 3
-5 : 10 -> 10, collisions: 7
+21 : 42 -> 42, collisions: 4
+18 : 36 -> 36, collisions: 4
+12 : 24 -> 24, collisions: 4
+5 : 10 -> 10, collisions: 9
 
 Linear: 10 collisions
-Quadratic: 8 collisions
-Double: 7 collisions
+Quadratic: 7 collisions
+Double: 9 collisions
 
 *** Descending Order End ***
