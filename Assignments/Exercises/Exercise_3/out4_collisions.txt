@@ -30,9 +30,9 @@ Double Hashing Probing
 82 : 164 -> 164, collisions: 1
 75 : 150 -> 150, collisions: 1
 
-Linear: 3collisions
-Quadratic: 2collisions
-Double: 1collisions
+Linear: 3 collisions
+Quadratic: 2 collisions
+Double: 1 collisions
 
 *** Random Order End ***
 *** Ascending Order Start ***
@@ -67,9 +67,9 @@ Double Hashing Probing
 75 : 150 -> 150, collisions: 1
 82 : 164 -> 164, collisions: 1
 
-Linear: 3collisions
-Quadratic: 2collisions
-Double: 1collisions
+Linear: 3 collisions
+Quadratic: 2 collisions
+Double: 1 collisions
 
 *** Ascending Order End ***
 *** Descending Order Start ***
@@ -104,8 +104,8 @@ Double Hashing Probing
 23 : 46 -> 46, collisions: 1
 7 : 14 -> 14, collisions: 1
 
-Linear: 3collisions
-Quadratic: 2collisions
-Double: 1collisions
+Linear: 3 collisions
+Quadratic: 2 collisions
+Double: 1 collisions
 
 *** Descending Order End ***

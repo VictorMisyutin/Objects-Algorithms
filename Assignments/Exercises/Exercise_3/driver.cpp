@@ -6,17 +6,13 @@
 
 using namespace std;
 
-int hashFunction(int key) {
-    return 2*key;
+int hash_function(int key) {
+    return key;
 }
 
 void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-<<<<<<< HEAD
     int index = hash_function(key);
     index = index % table.size();
-=======
-    int index = hashFunction(key);
->>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732
     while (table[index].first != -1) {
         index = (index + 1) % table.size();
         collisions++;
@@ -25,14 +21,9 @@ void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, in
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
-<<<<<<< HEAD
 void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
     int index = hash_function(key);
     index = index % table.size();
-=======
-void quadraticProbingInsert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hashFunction(key);
->>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732
     int i = 1;
     while (table[index].first != -1) {
         index = (index + i * i) % table.size(); 
@@ -43,36 +34,30 @@ void quadraticProbingInsert(vector<pair<int, int>>& table, int key, int value, i
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
-int doubleFactor(int key) {
+int double_factor(int key) {
     int doubleFactor = 7;
     return doubleFactor - (key % doubleFactor);
 }
 
-<<<<<<< HEAD
 void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
     int index = hash_function(key);
     index = index % table.size();
-    int step = double_factor(key);
-=======
-void doubleHashingInsert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hashFunction(key);
-    int step = doubleFactor(key);
->>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732
+    int step = double_factor(key); 
+    int count = 1;
     while (table[index].first != -1) {
-        index = (index + step) % table.size(); 
+        index = (index + count*step) % table.size(); 
         collisions++;
+        count++;
     }
     table[index] = make_pair(key, value);
     outputFile << key << " : " << value << " -> " << value << ", collisions: " << collisions << endl;
 }
 
 void printTable(const vector<pair<int, int>>& table, ofstream& outputFile) {
-    int count = 0;
     outputFile << "print table.size()=" << table.size() << endl;
-    for (const auto& entry : table) {
-        if (entry.first != -1) {
-            outputFile << "index=" << count << " key=" << entry.first << " value=" << entry.second << endl;
-            count++;
+    for (int i = 0 ; i < table.size(); i++) {
+        if (table[i].first != -1) {
+            outputFile << "index=" << i << " key=" << table[i].first << " value=" << table[i].second << endl;
         } 
     }  
 }
@@ -107,7 +92,7 @@ ProcessResult processNumbers(const vector<int>& numbers, ofstream& outputFile) {
     for (int num : numbers) {
         int key = num;
         int value = 2 * num;
-        quadraticProbingInsert(result.hash_tables[1], key, value, result.collisions[1], outputFile);
+        quadratic_probing_insert(result.hash_tables[1], key, value, result.collisions[1], outputFile);
     }
 
     outputFile << "\nDouble Hashing Probing" << endl;
@@ -115,14 +100,14 @@ ProcessResult processNumbers(const vector<int>& numbers, ofstream& outputFile) {
     for (int num : numbers) {
         int key = num;
         int value = 2 * num;
-        doubleHashingInsert(result.hash_tables[2], key, value, result.collisions[2], outputFile);
+        double_hashing_insert(result.hash_tables[2], key, value, result.collisions[2], outputFile);
     }
 
     outputFile << endl;
 
-    outputFile << "Linear: " << result.collisions[0] << "collisions" << endl;
-    outputFile << "Quadratic: " << result.collisions[1] << "collisions" << endl;
-    outputFile << "Double: " << result.collisions[2] << "collisions" << endl;
+    outputFile << "Linear: " << result.collisions[0] << " collisions" << endl;
+    outputFile << "Quadratic: " << result.collisions[1] << " collisions" << endl;
+    outputFile << "Double: " << result.collisions[2] << " collisions" << endl;
 
     return result;
 }
@@ -183,22 +168,22 @@ int main() {
             // table file
             
                 // Linear probing
-        tableFile << "*** Linear probing Random Order Start ***\n" << endl;
+        tableFile << "*** Linear probing Ascending Order Start ***\n" << endl;
         printTable(hash_tables_asc[0], tableFile);
         tableFile << "\nLinear probing " << ascResult.collisions[0] << " collisions" <<endl;
-        tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Linear probing Ascending Order End ***\n" << endl;
                 
                 // Quadratic probing
-        tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
+        tableFile << "*** Quadratic probing Ascending Order Start ***\n" << endl;
         printTable(hash_tables_asc[1], tableFile);
         tableFile << "\nQuadratic probing " << ascResult.collisions[1] << " collisions" <<endl;
-        tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Quadratic probing Ascending Order End ***\n" << endl;
 
                 // Double Hashing probing
-        tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
+        tableFile << "*** Double Hashing  probing Ascending Order Start ***\n" << endl;
         printTable(hash_tables_asc[2], tableFile);
         tableFile << "\nDouble Hashing probing " << ascResult.collisions[2] << " collisions" <<endl;
-        tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Double Hashing probing Ascending Order End ***\n" << endl;
 
         // delete[] ascResult.hash_tables;
 
@@ -214,22 +199,22 @@ int main() {
             // table file
             
                 // Linear probing
-        tableFile << "*** Linear probing Random Order Start ***\n" << endl;
+        tableFile << "*** Linear probing Descending Order Start ***\n" << endl;
         printTable(hash_tables_desc[0], tableFile);
         tableFile << "\nLienar probing " << descResult.collisions[0] << " collisions" <<endl;
-        tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Linear probing Descending Order End ***\n" << endl;
                 
                 // Quadratic probing
-        tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
+        tableFile << "*** Quadratic probing Descending Order Start ***\n" << endl;
         printTable(hash_tables_desc[1], tableFile);
         tableFile << "\nQuadratic probing " << descResult.collisions[1] << " collisions" <<endl;
-        tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Quadratic probing Descending Order End ***\n" << endl;
 
                 // Double Hashing probing
-        tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
+        tableFile << "*** Double Hashing  probing Descending Order Start ***\n" << endl;
         printTable(hash_tables_desc[2], tableFile);
         tableFile << "\nDouble Hashing probing " << descResult.collisions[2] << " collisions" <<endl;
-        tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
+        tableFile << "\n*** Double Hashing probing Descending Order End ***\n" << endl;
 
         // delete[] descResult.hash_tables;
 

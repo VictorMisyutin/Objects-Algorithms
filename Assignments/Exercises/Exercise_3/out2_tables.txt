@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *** Linear probing Random Order Start ***
 
 print table.size()=11
@@ -6,11 +5,11 @@ index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=21 value=42
 index=3 key=43 value=86
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=8 key=39 value=78
+index=10 key=32 value=64
 
 Linear probing 10 collisions
 
@@ -22,12 +21,12 @@ print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=21 value=42
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=21 value=42
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
 Quadratic probing 9 collisions
 
@@ -39,118 +38,116 @@ print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=5 value=10
-index=4 key=21 value=42
-index=5 key=18 value=36
-index=6 key=49 value=98
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=49 value=98
+index=5 key=5 value=10
+index=6 key=21 value=42
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
-Double Hashing probing 10 collisions
+Double Hashing probing 7 collisions
 
 *** Double Hashing probing Random Order End ***
 
-*** Linear probing Random Order Start ***
+*** Linear probing Ascending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=21 value=42
 index=3 key=43 value=86
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=8 key=39 value=78
+index=10 key=32 value=64
 
 Linear probing 10 collisions
 
-*** Linear probing Random Order End ***
+*** Linear probing Ascending Order End ***
 
-*** Quadratic probing Random Order Start ***
+*** Quadratic probing Ascending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=21 value=42
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=21 value=42
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
 Quadratic probing 9 collisions
 
-*** Quadratic probing Random Order End ***
+*** Quadratic probing Ascending Order End ***
 
-*** Double Hashing  probing Random Order Start ***
+*** Double Hashing  probing Ascending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=5 value=10
-index=4 key=21 value=42
-index=5 key=18 value=36
-index=6 key=49 value=98
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=49 value=98
+index=5 key=5 value=10
+index=6 key=21 value=42
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
 Double Hashing probing 8 collisions
 
-*** Double Hashing probing Random Order End ***
+*** Double Hashing probing Ascending Order End ***
 
-*** Linear probing Random Order Start ***
+*** Linear probing Descending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=21 value=42
 index=3 key=43 value=86
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=8 key=39 value=78
+index=10 key=32 value=64
 
 Lienar probing 10 collisions
 
-*** Linear probing Random Order End ***
+*** Linear probing Descending Order End ***
 
-*** Quadratic probing Random Order Start ***
+*** Quadratic probing Descending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=21 value=42
-index=4 key=5 value=10
-index=5 key=49 value=98
-index=6 key=18 value=36
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=21 value=42
+index=5 key=5 value=10
+index=6 key=49 value=98
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
 Quadratic probing 8 collisions
 
-*** Quadratic probing Random Order End ***
+*** Quadratic probing Descending Order End ***
 
-*** Double Hashing  probing Random Order Start ***
+*** Double Hashing  probing Descending Order Start ***
 
 print table.size()=11
 index=0 key=44 value=88
 index=1 key=12 value=24
 index=2 key=43 value=86
-index=3 key=5 value=10
-index=4 key=21 value=42
-index=5 key=18 value=36
-index=6 key=49 value=98
-index=7 key=39 value=78
-index=8 key=32 value=64
+index=4 key=49 value=98
+index=5 key=5 value=10
+index=6 key=21 value=42
+index=7 key=18 value=36
+index=9 key=39 value=78
+index=10 key=32 value=64
 
-Double Hashing probing 9 collisions
+Double Hashing probing 7 collisions
 
-*** Double Hashing probing Random Order End ***
+*** Double Hashing probing Descending Order End ***
 
-=======
->>>>>>> 9b123213076b75f5131d251c3f5d9243ee049732
