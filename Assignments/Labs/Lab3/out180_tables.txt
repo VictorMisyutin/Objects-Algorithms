@@ -182,7 +182,7 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Linear probing 1302 collisions
+Linear probing 2604 collisions
 
 *** Linear probing Random Order End ***
 
@@ -370,7 +370,7 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Quadratic probing 396 collisions
+Quadratic probing 792 collisions
 
 *** Quadratic probing Random Order End ***
 
@@ -558,7 +558,7 @@ index=188 key=8557 value=17114
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Double Hashing probing 358 collisions
+Double Hashing probing 716 collisions
 
 *** Double Hashing probing Random Order End ***
 
@@ -746,7 +746,7 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Linear probing 1302 collisions
+Linear probing 2604 collisions
 
 *** Linear probing Ascending Order End ***
 
@@ -934,7 +934,7 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Quadratic probing 452 collisions
+Quadratic probing 904 collisions
 
 *** Quadratic probing Ascending Order End ***
 
@@ -1122,7 +1122,7 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Double Hashing probing 347 collisions
+Double Hashing probing 694 collisions
 
 *** Double Hashing probing Ascending Order End ***
 
@@ -1310,7 +1310,7 @@ index=188 key=6432 value=12864
 index=189 key=6053 value=12106
 index=190 key=1544 value=3088
 
-Lienar probing 1302 collisions
+Lienar probing 2604 collisions
 
 *** Linear probing Descending Order End ***
 
@@ -1498,7 +1498,7 @@ index=188 key=6432 value=12864
 index=189 key=6053 value=12106
 index=190 key=1544 value=3088
 
-Quadratic probing 443 collisions
+Quadratic probing 886 collisions
 
 *** Quadratic probing Descending Order End ***
 
@@ -1686,7 +1686,7 @@ index=188 key=8557 value=17114
 index=189 key=6053 value=12106
 index=190 key=2927 value=5854
 
-Double Hashing probing 340 collisions
+Double Hashing probing 680 collisions
 
 *** Double Hashing probing Descending Order End ***
 

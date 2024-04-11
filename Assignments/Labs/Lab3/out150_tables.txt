@@ -152,7 +152,7 @@ index=188 key=8232 value=16464
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Linear probing 268 collisions
+Linear probing 536 collisions
 
 *** Linear probing Random Order End ***
 
@@ -310,7 +310,7 @@ index=188 key=8232 value=16464
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Quadratic probing 163 collisions
+Quadratic probing 326 collisions
 
 *** Quadratic probing Random Order End ***
 
@@ -468,7 +468,7 @@ index=188 key=8232 value=16464
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Double Hashing probing 151 collisions
+Double Hashing probing 302 collisions
 
 *** Double Hashing probing Random Order End ***
 
@@ -626,7 +626,7 @@ index=188 key=4632 value=9264
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Linear probing 268 collisions
+Linear probing 536 collisions
 
 *** Linear probing Ascending Order End ***
 
@@ -784,7 +784,7 @@ index=188 key=4632 value=9264
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Quadratic probing 174 collisions
+Quadratic probing 348 collisions
 
 *** Quadratic probing Ascending Order End ***
 
@@ -942,7 +942,7 @@ index=188 key=4632 value=9264
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Double Hashing probing 138 collisions
+Double Hashing probing 276 collisions
 
 *** Double Hashing probing Ascending Order End ***
 
@@ -1100,7 +1100,7 @@ index=188 key=8232 value=16464
 index=189 key=4632 value=9264
 index=190 key=1735 value=3470
 
-Lienar probing 268 collisions
+Lienar probing 536 collisions
 
 *** Linear probing Descending Order End ***
 
@@ -1258,7 +1258,7 @@ index=188 key=8232 value=16464
 index=189 key=4632 value=9264
 index=190 key=1735 value=3470
 
-Quadratic probing 147 collisions
+Quadratic probing 294 collisions
 
 *** Quadratic probing Descending Order End ***
 
@@ -1416,7 +1416,7 @@ index=188 key=8232 value=16464
 index=189 key=314 value=628
 index=190 key=1735 value=3470
 
-Double Hashing probing 165 collisions
+Double Hashing probing 330 collisions
 
 *** Double Hashing probing Descending Order End ***
 

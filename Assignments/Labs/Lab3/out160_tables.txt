@@ -162,7 +162,7 @@ index=186 key=5112 value=10224
 index=187 key=1999 value=3998
 index=188 key=686 value=1372
 
-Linear probing 203 collisions
+Linear probing 406 collisions
 
 *** Linear probing Random Order End ***
 
@@ -330,7 +330,7 @@ index=185 key=1768 value=3536
 index=188 key=5112 value=10224
 index=189 key=297 value=594
 
-Quadratic probing 153 collisions
+Quadratic probing 306 collisions
 
 *** Quadratic probing Random Order End ***
 
@@ -498,7 +498,7 @@ index=188 key=8792 value=17584
 index=189 key=5351 value=10702
 index=190 key=7696 value=15392
 
-Double Hashing probing 188 collisions
+Double Hashing probing 376 collisions
 
 *** Double Hashing probing Random Order End ***
 
@@ -666,7 +666,7 @@ index=186 key=1999 value=3998
 index=187 key=3608 value=7216
 index=188 key=5112 value=10224
 
-Linear probing 203 collisions
+Linear probing 406 collisions
 
 *** Linear probing Ascending Order End ***
 
@@ -834,7 +834,7 @@ index=185 key=1768 value=3536
 index=188 key=1999 value=3998
 index=189 key=7010 value=14020
 
-Quadratic probing 157 collisions
+Quadratic probing 314 collisions
 
 *** Quadratic probing Ascending Order End ***
 
@@ -1002,7 +1002,7 @@ index=187 key=7906 value=15812
 index=188 key=4768 value=9536
 index=189 key=9241 value=18482
 
-Double Hashing probing 180 collisions
+Double Hashing probing 360 collisions
 
 *** Double Hashing probing Ascending Order End ***
 
@@ -1170,7 +1170,7 @@ index=186 key=1999 value=3998
 index=187 key=1768 value=3536
 index=188 key=686 value=1372
 
-Lienar probing 203 collisions
+Lienar probing 406 collisions
 
 *** Linear probing Descending Order End ***
 
@@ -1338,7 +1338,7 @@ index=186 key=1768 value=3536
 index=188 key=3608 value=7216
 index=189 key=686 value=1372
 
-Quadratic probing 192 collisions
+Quadratic probing 384 collisions
 
 *** Quadratic probing Descending Order End ***
 
@@ -1506,7 +1506,7 @@ index=187 key=2013 value=4026
 index=188 key=4768 value=9536
 index=190 key=974 value=1948
 
-Double Hashing probing 175 collisions
+Double Hashing probing 350 collisions
 
 *** Double Hashing probing Descending Order End ***
 
