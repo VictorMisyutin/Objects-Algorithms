@@ -3,90 +3,91 @@ Heap
 1 2 6 4 3 10 7 27 5 21 9 45 36 43 8 44 32 40 17 42 28 31 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 2 3 6 4 9 10 7 27 5 21 31 45 36 43 8 44 32 40 17 42 28 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 3 4 6 5 9 10 7 27 17 21 31 45 36 43 8 44 32 40 28 42 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 4 5 6 17 9 10 7 27 28 21 31 45 36 43 8 44 32 40 42 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 5 9 6 17 21 10 7 27 28 42 31 45 36 43 8 44 32 40 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 6 9 7 17 21 10 8 27 28 42 31 45 36 43 40 44 32 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 7 9 8 17 21 10 32 27 28 42 31 45 36 43 40 44 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 8 9 10 17 21 36 32 27 28 42 31 45 44 43 40 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 9 17 10 27 21 36 32 40 28 42 31 45 44 43 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 10 17 32 27 21 36 43 40 28 42 31 45 44 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 17 21 32 27 31 36 43 40 28 42 44 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 21 27 32 28 31 36 43 40 45 42 44 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 27 28 32 40 31 36 43 44 45 42 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 28 31 32 40 42 36 43 44 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 31 40 32 44 42 36 43 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 32 40 36 44 42 45 43 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 36 40 43 44 42 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 40 42 43 44 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 42 44 43 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 43 44 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 44 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 45 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 
 
+Deleted all

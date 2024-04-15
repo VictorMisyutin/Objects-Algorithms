@@ -3,62 +3,63 @@ Heap
 1 12 3 19 16 24 18 79 68 78 65 26 32 33 21 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 3 12 18 19 16 24 21 79 68 78 65 26 32 33 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 12 16 18 19 33 24 21 79 68 78 65 26 32 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 16 19 18 32 33 24 21 79 68 78 65 26 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 18 19 21 32 33 24 26 79 68 78 65 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 19 32 21 65 33 24 26 79 68 78 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 21 32 24 65 33 78 26 79 68 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 24 32 26 65 33 78 68 79 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 26 32 68 65 33 78 79 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 32 33 68 65 79 78 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 33 65 68 78 79 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 65 78 68 79 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 68 78 79 
 
 Delete min
-Heap after deleteMin
-78 79 
+Heap after Delete min
+78 79
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 79 
 
 Delete min
-Heap after deleteMin
+Heap after Delete min
 
 
+Deleted all

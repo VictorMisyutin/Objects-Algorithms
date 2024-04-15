@@ -1,4 +1,23 @@
-#include "heap.hpp"
+#include <vector> // Include necessary header
+
+template<typename Comparable>
+class Heap {
+private:
+    std::vector<Comparable> heapVector;
+
+    void percolateUp(const Comparable& item);
+    void percolateDown();
+
+public:
+    Heap();
+    Heap(const Heap& otherHeap);
+    void assignCopy(const Heap& otherHeap);
+    ~Heap();
+    void insert(const Comparable& element);
+    void deleteMin();
+    int size() const;
+    const Comparable& getElement(int index) const;
+};
 
 template<typename Comparable>
 void Heap<Comparable>::percolateUp(const Comparable& item) {
@@ -60,11 +79,13 @@ void Heap<Comparable>::insert(const Comparable& element) {
 
 template<typename Comparable>
 void Heap<Comparable>::deleteMin() {
-    if (heapVector.empty())
+    if (heapVector.empty() || heapVector.size() == 0 )
         return;
-    
-    heapVector[0] = heapVector.back();
+
+    heapVector[0] = std::move(heapVector.back());
     heapVector.pop_back();
+    if (heapVector.empty() || heapVector.size() == 0)
+        return;
     percolateDown();
 }
 
