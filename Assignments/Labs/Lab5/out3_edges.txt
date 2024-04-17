@@ -1,0 +1,56 @@
+Graph edges: vertice1, vertice2, weight of the edge
+
+edge: 0, 18, 1
+edge: 8, 12, 1
+edge: 5, 6, 1
+edge: 15, 19, 1
+edge: 16, 17, 2
+edge: 2, 11, 2
+edge: 14, 18, 2
+edge: 8, 9, 2
+edge: 12, 16, 2
+edge: 1, 4, 3
+edge: 3, 7, 3
+edge: 7, 11, 3
+edge: 11, 19, 3
+edge: 1, 2, 4
+edge: 13, 16, 4
+edge: 9, 13, 4
+edge: 13, 18, 5
+edge: 8, 14, 5
+edge: 5, 10, 5
+edge: 4, 9, 5
+edge: 3, 5, 5
+edge: 1, 6, 5
+edge: 10, 15, 7
+edge: 0, 5, 7
+edge: 18, 19, 7
+edge: 10, 14, 8
+edge: 6, 10, 8
+edge: 17, 19, 8
+edge: 9, 11, 10
+edge: 12, 17, 23
+edge: 14, 19, 33
+
+Kruskal spanning tree edges: vertice1, vertice2, weight of the edge
+
+edge: 0, 18, 1
+edge: 8, 12, 1
+edge: 5, 6, 1
+edge: 15, 19, 1
+edge: 16, 17, 2
+edge: 2, 11, 2
+edge: 14, 18, 2
+edge: 8, 9, 2
+edge: 12, 16, 2
+edge: 1, 4, 3
+edge: 3, 7, 3
+edge: 7, 11, 3
+edge: 11, 19, 3
+edge: 1, 2, 4
+edge: 13, 16, 4
+edge: 13, 18, 5
+edge: 5, 10, 5
+edge: 4, 9, 5
+edge: 3, 5, 5
+Kruskal spanning tree weight is 54

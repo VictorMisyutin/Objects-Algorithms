@@ -1,30 +1,60 @@
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 class Node {
-// private:
 private:
-    int value; // store the value of the node
-    vector<pair<Node*, int>> edges; // keep track of nodes connected to this node and the weight of each edge
+    int value;
+    vector<pair<Node*, int>> edges; 
+    Node* parent; 
+    int rank;
 public:
     Node(int newValue);
-    void Attach(Node* node, int weight); // attach node to another node and record the weight of that edge
-    int GetValue(); // get value of node
+    void Attach(Node* node, int weight);
+    int GetValue(); 
+    int SetValue(int newValue);
+    vector<pair<Node*,int>> GetEdges();
+    Node* GetParent();
+    void SetParent(Node* p); 
+    int GetRank(); 
+    void SetRank(int r);
 };
-Node::Node(int newValue){
+
+Node::Node(int newValue) {
+    value = newValue;
+    parent = nullptr;
+    rank = 0;
+}
+
+void Node::Attach(Node* node, int weight) {
+    edges.emplace_back(node, weight);
+}
+
+int Node::GetValue() {
+    return value;
+}
+
+int Node::SetValue(int newValue) {
     value = newValue;
 }
 
-void Node::Attach(Node* node, int weight){
-    pair<Node*, int> pair;
-    pair.first = node;
-    pair.second = weight; 
-    edges.push_back(pair);
-    return;
+vector<pair<Node*,int>> Node::GetEdges() {
+    return edges;
 }
 
-int Node::GetValue(){
-    return value;
+Node* Node::GetParent() {
+    return parent;
 }
-// void Heap<Comparable>::percolateUp(const Comparable& item)
+
+void Node::SetParent(Node* p) {
+    parent = p;
+}
+
+int Node::GetRank() {
+    return rank;
+}
+
+void Node::SetRank(int r) {
+    rank = r;
+}
