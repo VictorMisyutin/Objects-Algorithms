@@ -7,6 +7,18 @@
 
 using namespace std;
 
+void RemoveLastCharacterFromFile(const string filename) {
+    ifstream inputFile(filename);
+    string content((istreambuf_iterator<char>(inputFile)), istreambuf_iterator<char>());
+    inputFile.close();
+    content.pop_back();
+    ofstream outputFile(filename);
+    if (!outputFile)
+        return;
+    outputFile << content;
+    outputFile.close();
+}
+
 void BuildHuffmanTable(Node* root, unordered_map<string, string>& ht, ofstream& file, string bitPath) {
     if(root->GetAsciiCode() != -1){
         file << root->GetAsciiCode() << " '" << root->GetCharacter() << "' {" << bitPath << "}" << endl;
@@ -50,19 +62,23 @@ void HuffmanTree(PriorityQueue& pq, unordered_map<string, string>& ht, ofstream&
 }
 
 int main(){
-    for(int i = 5 ; i < 15 ;i+=9 ){
-        ifstream inFile(to_string(i) + "_in.txt");
-        ofstream debugFile( to_string(i) + "_debug.txt");
+    for(int m = 5 ; m < 15 ;m+=9 ){
+        ofstream debugFile( to_string(m) + "_debug.txt");
+        // write one space to end of file so that I can last line
+        ofstream tempOpen( to_string(m) + "_in.txt", ios::app);
+        tempOpen << " ";
+        tempOpen.close();
+        ifstream inFile(to_string(m) + "_in.txt");
 
         string line = "";
         string character = "";
         unordered_map<string, int> characters_map = {};
 
-        characters_map["\\r"] = 0;
-        characters_map["\\n"] = 0;
-
+        characters_map["\\r"] = -1;
+        characters_map["\\n"] = -1;
+        int fileLength = 0;
         while(getline(inFile, line)){
-            cout << "new line" << endl;
+            fileLength++;
             for(int i = 0; i < line.length(); i++){
                 character = line[i];
                 if(characters_map.find(character) == characters_map.end())
@@ -74,7 +90,15 @@ int main(){
             characters_map["\\r"] += 1;
             characters_map["\\n"] += 1;
         }
-        cout << endl;
+
+        // remove that temporary space
+        if(characters_map[" "] == 1){
+            characters_map.erase(" ");
+        }
+        else{
+            characters_map[" "] -= 1;
+        }
+
         // back to beginning
         inFile.clear();
         inFile.seekg(0);
@@ -109,18 +133,24 @@ int main(){
         debugFile << "\nmakeBitData:\n" << endl;
         HuffmanTree(pq, hoffmanValues, debugFile);
 
-        ofstream encodedOut(to_string(i) + "_encoded.txt");
+        ofstream encodedOut(to_string(m) + "_encoded.txt");
         string encodedString = "";
         string search = "";
+        int fileLengthTwo = 0;
         while(getline(inFile, line)){
+            fileLengthTwo++;
+            if(fileLengthTwo == fileLength) line.pop_back();
             for(int i = 0; i < line.length(); i++){
                 character = line[i];
                 encodedString = encodedString + hoffmanValues[character];
             }
-            encodedString = encodedString + hoffmanValues["\\r"];
-            encodedString = encodedString + hoffmanValues["\\n"];
+            if(fileLengthTwo != fileLength){
+                encodedString = encodedString + hoffmanValues["\\r"];
+                encodedString = encodedString + hoffmanValues["\\n"];
+            }
         }
         encodedOut << encodedString;
+        RemoveLastCharacterFromFile(to_string(m) + "_in.txt");
     }
     return 0;
 }
