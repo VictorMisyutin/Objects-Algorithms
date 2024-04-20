@@ -71,18 +71,38 @@ std::unordered_map<char, std::string> huffmanEncoding(const std::string& input_s
 }
 
 int main() {
-    std::ifstream file("../Exercise_6/5_in.txt"); // Open the input file
+    // std::ifstream file("../Exercise_6/14_in.txt"); // Open the input file
+    // if (!file.is_open()) {
+    //     std::cerr << "Error opening file!" << std::endl;
+    //     return 1;
+    // }
+
+    // std::string input_string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>()); // Read file content into a string
+    // file.close(); // Close the file
+
+    // std::unordered_map<char, std::string> huffman_encoding = huffmanEncoding(input_string);
+    // for (const auto& pair : huffman_encoding) {
+    //     std::cout << "Character: " << pair.first << ", Huffman Code: " << pair.second << std::endl;
+    // }
+    // return 0;
+    std::ifstream file("../Exercise_6/5_in.txt");
     if (!file.is_open()) {
-        std::cerr << "Error opening file!" << std::endl;
+        std::cerr << "Failed to open the file." << std::endl;
         return 1;
     }
 
-    std::string input_string((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>()); // Read file content into a string
-    file.close(); // Close the file
-
-    std::unordered_map<char, std::string> huffman_encoding = huffmanEncoding(input_string);
-    for (const auto& pair : huffman_encoding) {
-        std::cout << "Character: " << pair.first << ", Huffman Code: " << pair.second << std::endl;
+    int lineCount = 0;
+    std::string line;
+    while (std::getline(file, line)) {
+        lineCount++;
+        // Check if the line is empty
+        if(line.empty()) {
+            lineCount--; // Decrement if line is empty
+        }
     }
+
+    std::cout << "Number of lines in the file: " << lineCount << std::endl;
+
+    file.close();
     return 0;
 }
