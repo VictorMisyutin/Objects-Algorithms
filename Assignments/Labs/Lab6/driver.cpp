@@ -96,7 +96,7 @@ int main() {
         tempOpen << " ";
         tempOpen.close();
         ifstream inFile("./inputs/" + to_string(m) + "_in.txt");
-
+        cout << "*** Testing File " << to_string(m) << "_in.txt, debug output file " << to_string(m) << "_debug.txt ***" << endl;
         string line = "";
         string character = "";
         vector<pair<string, int>> characters_frequency;
