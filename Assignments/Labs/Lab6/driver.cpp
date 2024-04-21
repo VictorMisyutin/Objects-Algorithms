@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <iterator>
 #include <string>
 #include <vector>
 #include "MinHeap.cpp" // Assuming MinHeap.cpp contains the necessary definitions for your MinHeap
@@ -41,16 +42,16 @@ void BuildHuffmanTable(Node* root, vector<pair<string, string>>& ht, ofstream& f
     }
 }
 
-void BuildHuffmanTree(PriorityQueue& pq, vector<pair<string, string>>& ht, ofstream& file) {
-    Node* rootNode = nullptr;
+Node* BuildHuffmanTree(PriorityQueue& pq, vector<pair<string, string>>& ht, ofstream& file) {
+    Node* rootNode = new Node(-1, "", 0, nullptr, nullptr);
     if(pq.Size() == 0){
-        return;
+        return rootNode;
     }
     else if(pq.Size() == 1){
         Node* temp = pq.pop();
         rootNode = new Node(temp->GetAsciiCode(), temp->GetCharacter(), temp->GetFrequency(), nullptr, nullptr);
         BuildHuffmanTable(rootNode, ht, file, "0");
-        return;
+        return rootNode;
     }
     while (pq.Size() > 1) {
         Node* leftNode = pq.pop();
@@ -60,7 +61,9 @@ void BuildHuffmanTree(PriorityQueue& pq, vector<pair<string, string>>& ht, ofstr
         pq.enqueue(internalNode);
         rootNode = internalNode;
     }
+    
     BuildHuffmanTable(rootNode, ht, file, "");
+    return rootNode;
 }
 
 string huffmanValue(string c, vector<pair<string, string>>& ht) {
@@ -68,6 +71,22 @@ string huffmanValue(string c, vector<pair<string, string>>& ht) {
         if (pair.first == c)
             return pair.second;
     return "";
+}
+
+bool compareFiles(const string& p1, const string& p2) {
+  ifstream f1(p1, ifstream::binary|ifstream::ate);
+  ifstream f2(p2, ifstream::binary|ifstream::ate);
+
+  if (f1.fail() || f2.fail()) {
+    cout << "here" << endl;
+    return false;
+  }
+
+  f1.seekg(0, ifstream::beg);
+  f2.seekg(0, ifstream::beg);
+  return equal(istreambuf_iterator<char>(f1.rdbuf()),
+                    istreambuf_iterator<char>(),
+                    istreambuf_iterator<char>(f2.rdbuf()));
 }
 
 int main() {
@@ -139,7 +158,8 @@ int main() {
         pq.Print(debugFile);
 
         debugFile << "\nmakeBitData:\n" << endl;
-        BuildHuffmanTree(pq, huffmanValues, debugFile);
+        Node* rootNode = BuildHuffmanTree(pq, huffmanValues, debugFile);
+        debugFile.close();
 
         ofstream encodedOut("./outputs/" + to_string(m) + "_encoded.txt");
         string encodedString = "";
@@ -157,8 +177,63 @@ int main() {
                 encodedString += huffmanValue("\\n", huffmanValues);
             }
         }
+        inFile.close();
         encodedOut << encodedString;
         RemoveLastCharacterFromFile("./inputs/" + to_string(m) + "_in.txt");
+        encodedOut.close();
+
+        // decode files using recursive algorithm ?? 
+        ifstream encodedFile("./outputs/" + to_string(m) + "_encoded.txt");
+        ofstream decodedFile("./outputs/" + to_string(m) + "_decoded.txt");
+        getline(encodedFile, line);
+        encodedFile.close();
+
+        // handle case where there is just one repeated character:
+        if(rootNode->GetAsciiCode() != -1 && rootNode->GetLeftChild() == nullptr && rootNode->GetRightChild() == nullptr){
+            for(char c : line){
+                decodedFile << rootNode->GetCharacter();
+            }
+            continue;
+        }
+        Node currentNode = *rootNode;
+        for(char c : line){
+            // cout << "Current Node Code: " << currentNode.GetAsciiCode() << endl;
+            if(c == '0'){
+                currentNode = *currentNode.GetLeftChild();
+            }
+            else{
+                currentNode = *currentNode.GetRightChild();
+            }
+            if(currentNode.GetAsciiCode() != -1){
+                if(currentNode.GetCharacter() == "\\n"){
+                    decodedFile << "\n";
+                }
+                else if(currentNode.GetCharacter() == "\\r"){
+                    // '\n' already does '\r' automatically so I think I can just ignore these for now.
+                }
+                else
+                decodedFile << currentNode.GetCharacter();
+                currentNode = *rootNode;
+            }
+        }
+        decodedFile.close();
+
+        // compare decoded file to original file and cout << "OK"; if the same
+        // I think I have to do this by comparing bits or bytes??
+        if(compareFiles("./inputs/" + to_string(m) + "_in.txt", "./outputs/" + to_string(m) + "_decoded.txt")){
+            cout << "OK" << endl;
+        }
+        else{
+            cout << "fail:" << to_string(m) << endl;
+        }
+
+        // ifstream firstFile("./inputs/" + to_string(m) + "_in.txt");
+        // // ifstream secondFile("./outputs/" + to_string(m) + "_decoded.txt");
+        // string line1, line2;
+        // while(getline(firstFile, line1)){
+        //     cout << line1 << endl;
+        // }
+        // cout << "\n" << endl;
     }
     return 0;
 }
