@@ -227,13 +227,6 @@ int main() {
             cout << "fail:" << to_string(m) << endl;
         }
 
-        // ifstream firstFile("./inputs/" + to_string(m) + "_in.txt");
-        // // ifstream secondFile("./outputs/" + to_string(m) + "_decoded.txt");
-        // string line1, line2;
-        // while(getline(firstFile, line1)){
-        //     cout << line1 << endl;
-        // }
-        // cout << "\n" << endl;
     }
     return 0;
 }
