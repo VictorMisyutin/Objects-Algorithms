@@ -1,0 +1,14 @@
+countCharacters:
+
+97 'a' {6}
+98 'b' {2}
+
+printQueue:
+
+98 'b' {2}
+97 'a' {6}
+
+makeBitData:
+
+98 'b' {0}
+97 'a' {1}
