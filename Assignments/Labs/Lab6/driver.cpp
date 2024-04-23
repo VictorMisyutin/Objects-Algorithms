@@ -78,15 +78,16 @@ bool compareFiles(const string& p1, const string& p2) {
   ifstream f2(p2, ifstream::binary|ifstream::ate);
 
   if (f1.fail() || f2.fail()) {
-    cout << "here" << endl;
+    cout << "first fail";
     return false;
   }
 
   f1.seekg(0, ifstream::beg);
   f2.seekg(0, ifstream::beg);
-  return equal(istreambuf_iterator<char>(f1.rdbuf()),
+  bool result = equal(istreambuf_iterator<char>(f1.rdbuf()),
                     istreambuf_iterator<char>(),
-                    istreambuf_iterator<char>(f2.rdbuf()));
+                    istreambuf_iterator<char>(f2.rdbuf())); 
+  return result;
 }
 
 int main() {
@@ -192,12 +193,20 @@ int main() {
         if(rootNode->GetAsciiCode() != -1 && rootNode->GetLeftChild() == nullptr && rootNode->GetRightChild() == nullptr){
             for(char c : line){
                 decodedFile << rootNode->GetCharacter();
+                cout << rootNode->GetCharacter();
             }
-            continue;
+            cout << endl;
+            if(compareFiles("./inputs/" + to_string(m) + "_in.txt", "./outputs/" + to_string(m) + "_decoded.txt")){
+                cout << "OK" << endl;
+            }
+            else{
+                cout << "fail:" << to_string(m) << endl;
+            }
+            debugFile.close();
+            // continue;
         }
         Node currentNode = *rootNode;
         for(char c : line){
-            // cout << "Current Node Code: " << currentNode.GetAsciiCode() << endl;
             if(c == '0'){
                 currentNode = *currentNode.GetLeftChild();
             }
@@ -210,9 +219,10 @@ int main() {
                 }
                 else if(currentNode.GetCharacter() == "\\r"){
                     // '\n' already does '\r' automatically so I think I can just ignore these for now.
+                    // continue;
                 }
                 else
-                decodedFile << currentNode.GetCharacter();
+                    decodedFile << currentNode.GetCharacter();
                 currentNode = *rootNode;
             }
         }
@@ -226,7 +236,6 @@ int main() {
         else{
             cout << "fail:" << to_string(m) << endl;
         }
-
     }
     return 0;
 }
