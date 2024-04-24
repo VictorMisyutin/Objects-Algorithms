@@ -190,6 +190,7 @@ int main() {
         encodedFile.close();
 
         // handle case where there is just one repeated character:
+        // TODO: fix logic here
         if(rootNode->GetAsciiCode() != -1 && rootNode->GetLeftChild() == nullptr && rootNode->GetRightChild() == nullptr){
             for(char c : line){
                 decodedFile << rootNode->GetCharacter();
@@ -219,7 +220,7 @@ int main() {
                 }
                 else if(currentNode.GetCharacter() == "\\r"){
                     // '\n' already does '\r' automatically so I think I can just ignore these for now.
-                    // continue;
+                    // do nothing
                 }
                 else
                     decodedFile << currentNode.GetCharacter();
