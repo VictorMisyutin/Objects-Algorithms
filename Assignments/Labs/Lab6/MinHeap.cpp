@@ -1,22 +1,4 @@
-#include <queue>
-// #include "Node.cpp"
-#include "PriorityQueue.cpp"
-
-class MinHeap {
-private:
-    Node* root;
-    int length;
-public:
-    MinHeap() : root(nullptr), length(0) {}
-    void Push(Node* node);
-};
-
-struct CompareNode {
-    bool operator()(Node* a, Node* b) const {
-        return a->GetFrequency() > b->GetFrequency();
-    }
-};
-
+#include "MinHeap.h"
 void MinHeap::Push(Node* node) {
     priority_queue<Node*, vector<Node*>, CompareNode> pq;
 

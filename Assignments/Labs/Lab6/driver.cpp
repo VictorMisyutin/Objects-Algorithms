@@ -3,7 +3,7 @@
 #include <iterator>
 #include <string>
 #include <vector>
-#include "MinHeap.cpp" // Assuming MinHeap.cpp contains the necessary definitions for your MinHeap
+#include "MinHeap.h"
 
 using namespace std;
 
@@ -29,13 +29,16 @@ void BuildHuffmanTable(Node* root, vector<pair<string, string>>& ht, ofstream& f
     if (root->GetLeftChild() == nullptr && root->GetRightChild() == nullptr) {
         // leaf node
         return;
-    } else if (root->GetLeftChild() == nullptr) {
+    }
+    else if (root->GetLeftChild() == nullptr) {
         // only has right child
         BuildHuffmanTable(root->GetRightChild(), ht, file, bitPath + "1");
-    } else if (root->GetRightChild() == nullptr) {
+    }
+    else if (root->GetRightChild() == nullptr) {
         // only has left child
         BuildHuffmanTable(root->GetLeftChild(), ht, file, bitPath + "0");
-    } else {
+    }
+    else {
         // has both children
         BuildHuffmanTable(root->GetLeftChild(), ht, file, bitPath + "0");
         BuildHuffmanTable(root->GetRightChild(), ht, file, bitPath + "1");
@@ -44,10 +47,10 @@ void BuildHuffmanTable(Node* root, vector<pair<string, string>>& ht, ofstream& f
 
 Node* BuildHuffmanTree(PriorityQueue& pq, vector<pair<string, string>>& ht, ofstream& file) {
     Node* rootNode = new Node(-1, "", 0, nullptr, nullptr);
-    if(pq.Size() == 0){
+    if (pq.Size() == 0) {
         return rootNode;
     }
-    else if(pq.Size() == 1){
+    else if (pq.Size() == 1) {
         Node* temp = pq.pop();
         rootNode = new Node(temp->GetAsciiCode(), temp->GetCharacter(), temp->GetFrequency(), nullptr, nullptr);
         BuildHuffmanTable(rootNode, ht, file, "0");
@@ -61,7 +64,7 @@ Node* BuildHuffmanTree(PriorityQueue& pq, vector<pair<string, string>>& ht, ofst
         pq.enqueue(internalNode);
         rootNode = internalNode;
     }
-    
+
     BuildHuffmanTable(rootNode, ht, file, "");
     return rootNode;
 }
@@ -74,29 +77,29 @@ string huffmanValue(string c, vector<pair<string, string>>& ht) {
 }
 
 bool compareFiles(const string& p1, const string& p2) {
-  ifstream f1(p1, ifstream::binary|ifstream::ate);
-  ifstream f2(p2, ifstream::binary|ifstream::ate);
+    ifstream f1(p1, ifstream::binary | ifstream::ate);
+    ifstream f2(p2, ifstream::binary | ifstream::ate);
 
-  if (f1.fail() || f2.fail()) {
-    cout << "first fail";
-    return false;
-  }
+    if (f1.fail() || f2.fail()) {
+        cout << "first fail";
+        return false;
+    }
 
-  f1.seekg(0, ifstream::beg);
-  f2.seekg(0, ifstream::beg);
-  bool result = equal(istreambuf_iterator<char>(f1.rdbuf()),
-                    istreambuf_iterator<char>(),
-                    istreambuf_iterator<char>(f2.rdbuf())); 
-  return result;
+    f1.seekg(0, ifstream::beg);
+    f2.seekg(0, ifstream::beg);
+    bool result = equal(istreambuf_iterator<char>(f1.rdbuf()),
+        istreambuf_iterator<char>(),
+        istreambuf_iterator<char>(f2.rdbuf()));
+    return result;
 }
 
 int main() {
     for (int m = 1; m < 12; m++) {
-        ofstream debugFile("./outputs/" + to_string(m) + "_debug.txt");
-        ofstream tempOpen("./inputs/" + to_string(m) + "_in.txt", ios::app);
+        ofstream debugFile("./" + to_string(m) + "_debug.txt");
+        ofstream tempOpen("./" + to_string(m) + "_in.txt", ios::app);
         tempOpen << " ";
         tempOpen.close();
-        ifstream inFile("./inputs/" + to_string(m) + "_in.txt");
+        ifstream inFile("./" + to_string(m) + "_in.txt");
         cout << "*** Testing File " << to_string(m) << "_in.txt, debug output file " << to_string(m) << "_debug.txt ***" << endl;
         string line = "";
         string character = "";
@@ -111,10 +114,11 @@ int main() {
                 character = line[i];
                 auto it = find_if(characters_frequency.begin(), characters_frequency.end(), [&character](const pair<string, int>& p) {
                     return p.first == character;
-                });
+                    });
                 if (it != characters_frequency.end()) {
                     it->second++;
-                } else {
+                }
+                else {
                     characters_frequency.push_back(make_pair(character, 1));
                 }
             }
@@ -124,10 +128,10 @@ int main() {
         inFile.clear();
         inFile.seekg(0);
 
-        for(int j = 0; j < characters_frequency.size(); j++){
+        for (int j = 0; j < characters_frequency.size(); j++) {
             pair<string, int>& p = characters_frequency[j];
-            if(p.first == " ") p.second--;
-            if(p.second == 0)
+            if (p.first == " ") p.second--;
+            if (p.second == 0)
             {
                 characters_frequency.erase(characters_frequency.begin() + j);
                 j--;
@@ -143,10 +147,12 @@ int main() {
             if (pair.first == "\\n") {
                 output_character = "\\n";
                 asciiCode = 10;
-            } else if (pair.first == "\\r") {
+            }
+            else if (pair.first == "\\r") {
                 output_character = "\\r";
                 asciiCode = 13;
-            } else {
+            }
+            else {
                 output_character = pair.first;
                 asciiCode = int(pair.first[0]);
             }
@@ -162,7 +168,7 @@ int main() {
         Node* rootNode = BuildHuffmanTree(pq, huffmanValues, debugFile);
         debugFile.close();
 
-        ofstream encodedOut("./outputs/" + to_string(m) + "_encoded.txt");
+        ofstream encodedOut("./" + to_string(m) + "_encoded.txt");
         string encodedString = "";
         int fileLengthTwo = 0;
         while (getline(inFile, line)) {
@@ -180,62 +186,58 @@ int main() {
         }
         inFile.close();
         encodedOut << encodedString;
-        RemoveLastCharacterFromFile("./inputs/" + to_string(m) + "_in.txt");
+        RemoveLastCharacterFromFile("./" + to_string(m) + "_in.txt");
         encodedOut.close();
 
-        // decode files using recursive algorithm ?? 
-        ifstream encodedFile("./outputs/" + to_string(m) + "_encoded.txt");
-        ofstream decodedFile("./outputs/" + to_string(m) + "_decoded.txt");
+        ifstream encodedFile("./" + to_string(m) + "_encoded.txt");
+        ofstream decodedFile("./" + to_string(m) + "_decoded.txt");
         getline(encodedFile, line);
         encodedFile.close();
 
-        // handle case where there is just one repeated character:
-        // TODO: fix logic here
-        if(rootNode->GetAsciiCode() != -1 && rootNode->GetLeftChild() == nullptr && rootNode->GetRightChild() == nullptr){
-            for(char c : line){
+        // handle case where tere is just one repeated character:
+        if (rootNode->GetAsciiCode() != -1 && rootNode->GetLeftChild() == nullptr && rootNode->GetRightChild() == nullptr) {
+            for (char c : line) {
                 decodedFile << rootNode->GetCharacter();
-                cout << rootNode->GetCharacter();
             }
-            cout << endl;
-            if(compareFiles("./inputs/" + to_string(m) + "_in.txt", "./outputs/" + to_string(m) + "_decoded.txt")){
+            decodedFile.close();
+            if (compareFiles("./" + to_string(m) + "_in.txt", "./" + to_string(m) + "_decoded.txt")) {
                 cout << "OK" << endl;
             }
-            else{
+            else {
                 cout << "fail:" << to_string(m) << endl;
             }
             debugFile.close();
-            // continue;
         }
-        Node currentNode = *rootNode;
-        for(char c : line){
-            if(c == '0'){
-                currentNode = *currentNode.GetLeftChild();
-            }
-            else{
-                currentNode = *currentNode.GetRightChild();
-            }
-            if(currentNode.GetAsciiCode() != -1){
-                if(currentNode.GetCharacter() == "\\n"){
-                    decodedFile << "\n";
+        else {
+            Node currentNode = *rootNode;
+            for (char c : line) {
+                if (c == '0') {
+                    currentNode = *currentNode.GetLeftChild();
                 }
-                else if(currentNode.GetCharacter() == "\\r"){
-                    // '\n' already does '\r' automatically so I think I can just ignore these for now.
-                    // do nothing
+                else {
+                    currentNode = *currentNode.GetRightChild();
                 }
-                else
-                    decodedFile << currentNode.GetCharacter();
-                currentNode = *rootNode;
+                if (currentNode.GetAsciiCode() != -1) {
+                    if (currentNode.GetCharacter() == "\\n") {
+                        decodedFile << "\n";
+                    }
+                    else if (currentNode.GetCharacter() == "\\r") {
+                        // '\n' already does '\r' automatically so I think I can just ignore these for now.
+                        // do nothing
+                    }
+                    else
+                        decodedFile << currentNode.GetCharacter();
+                    currentNode = *rootNode;
+                }
             }
-        }
-        decodedFile.close();
+            decodedFile.close();
 
-        // compare decoded file to original file and cout << "OK"; if the same
-        // I think I have to do this by comparing bits or bytes??
-        if(compareFiles("./inputs/" + to_string(m) + "_in.txt", "./outputs/" + to_string(m) + "_decoded.txt")){
-            cout << "OK" << endl;
-        }
-        else{
-            cout << "fail:" << to_string(m) << endl;
+            if (compareFiles("./" + to_string(m) + "_in.txt", "./" + to_string(m) + "_decoded.txt")) {
+                cout << "OK" << endl;
+            }
+            else {
+                cout << "fail:" << to_string(m) << endl;
+            }
         }
     }
     return 0;
