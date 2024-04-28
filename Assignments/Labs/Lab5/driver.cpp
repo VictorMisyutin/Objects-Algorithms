@@ -1,8 +1,9 @@
-#include "Edge.cpp"
+#include "Edge.h"
 #include <vector>
 #include <algorithm>
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -20,16 +21,18 @@ Node* findRoot(Node* node) {
 void mergeSets(Node* root1, Node* root2) {
     if (root1->GetRank() < root2->GetRank()) {
         root1->SetParent(root2);
-    } else if (root1->GetRank() > root2->GetRank()) {
+    }
+    else if (root1->GetRank() > root2->GetRank()) {
         root2->SetParent(root1);
-    } else {
+    }
+    else {
         root1->SetParent(root2);
         root2->SetRank(root2->GetRank() + 1);
     }
 }
 
 int main() {
-    for(int i = 2; i < 4; i++){
+    for (int i = 2; i < 4; i++) {
         ifstream inFile("in" + to_string(i) + "_edges" + ".txt");
         ofstream outFile("out" + to_string(i) + "_edges" + ".txt");
 
@@ -49,7 +52,8 @@ int main() {
             if (it1 == nodes.end()) {
                 node1 = new Node(val1);
                 nodes.push_back(node1);
-            } else {
+            }
+            else {
                 node1 = *it1;
             }
 
@@ -58,7 +62,8 @@ int main() {
             if (it2 == nodes.end()) {
                 node2 = new Node(val2);
                 nodes.push_back(node2);
-            } else {
+            }
+            else {
                 node2 = *it2;
             }
 
