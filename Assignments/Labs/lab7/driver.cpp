@@ -275,3 +275,88 @@ int main() {
     }
     return 0;
 }
+
+// ------------------------------------------------
+// #include <sstream>
+// #include <string>
+// #include <iostream>
+// #include <fstream>
+// #include <codecvt>
+// #include <boost/multiprecision/cpp_int.hpp>
+
+// using namespace std;
+
+
+// wstring wcharToUtf8(wchar_t c) {
+//     if (c < 0x80) {
+//         return { static_cast<wchar_t>(c) };
+//     }
+//     else if (c < 0x800) {
+//         return {
+//             static_cast<wchar_t>(0xC0 | ((c >> 6) & 0x1F)),
+//             static_cast<wchar_t>(0x80 | (c & 0x3F))
+//         };
+//     }
+//     else if (c < 0x10000) {
+//         return {
+//             static_cast<wchar_t>(0xE0 | ((c >> 12) & 0x0F)),
+//             static_cast<wchar_t>(0x80 | ((c >> 6) & 0x3F)),
+//             static_cast<wchar_t>(0x80 | (c & 0x3F))
+//         };
+//     }
+//     else {
+//         return {
+//             static_cast<wchar_t>(0xF0 | ((c >> 18) & 0x07)),
+//             static_cast<wchar_t>(0x80 | ((c >> 12) & 0x3F)),
+//             static_cast<wchar_t>(0x80 | ((c >> 6) & 0x3F)),
+//             static_cast<wchar_t>(0x80 | (c & 0x3F))
+//         };
+//     }
+// }
+
+
+// int main() {
+//     wifstream inFile("2_in.txt");
+//     wofstream debugFile("debug.txt");
+//     wofstream decryptedFile("decrypted.txt");
+//     wstringstream wss;
+//     wss << inFile.rdbuf();
+//     wstring string = wss.str();
+//     for (size_t i = 0; i < string.size() ; i++) {
+//         if (string[i] == '\n') {
+//             string.replace(i, 1, L"\r\n");
+//             i++;
+//         }
+//     }
+//     int block_length = 18;
+//     size_t  pos = 0;
+//     while (pos < string.size()) {
+//         wstring block = string.substr(pos, block_length);
+//         int count = 0;
+//         for (wchar_t& c : block) {
+//             //wchar_t c = string[i];
+//             if (c == L'\n') {
+//                 debugFile << "[" << count << "]" << " '\\n' ";
+//             }
+//             else if (c == L'\r') {
+//                 debugFile << "[" << count << "]" << " '\\r' ";
+//             }
+//             else {
+//                 debugFile << "[" << count << "]" << " '" << c << "' : ";
+//                 std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
+//                 //std::string utf8Hex = converter.to_bytes(c);
+//                 std::string utf8Hex = converter.to_bytes(L'•');
+//                 cout << hex << uppercase << utf8Hex << endl;
+//                 for (char c : utf8Hex) {
+//                    debugFile << hex << uppercase << (static_cast<unsigned char>(c));
+//                 }
+//                 debugFile << endl;
+//             }
+//             count++;
+//         }
+//         debugFile << endl;
+//         pos += block_length;
+//     }
+
+//     return 0;
+// }
