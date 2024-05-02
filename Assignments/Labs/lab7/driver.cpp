@@ -267,88 +267,185 @@ int main() {
     }
     return 0;
 }
-
-// ------------------------------------------------
-// #include <sstream>
 // #include <string>
 // #include <iostream>
+// #include <fcntl.h>
+// #include <io.h>
 // #include <fstream>
-// #include <codecvt>
+// #include <sstream>
+// #include <vector>
 // #include <boost/multiprecision/cpp_int.hpp>
 
 // using namespace std;
+// using namespace boost::multiprecision;
 
+// void GetPQEValues(string fileName, cpp_int* P, cpp_int* Q, cpp_int* E) {
+//     ifstream file(fileName);
+//     string fileContents;
 
-// wstring wcharToUtf8(wchar_t c) {
-//     if (c < 0x80) {
-//         return { static_cast<wchar_t>(c) };
-//     }
-//     else if (c < 0x800) {
-//         return {
-//             static_cast<wchar_t>(0xC0 | ((c >> 6) & 0x1F)),
-//             static_cast<wchar_t>(0x80 | (c & 0x3F))
-//         };
-//     }
-//     else if (c < 0x10000) {
-//         return {
-//             static_cast<wchar_t>(0xE0 | ((c >> 12) & 0x0F)),
-//             static_cast<wchar_t>(0x80 | ((c >> 6) & 0x3F)),
-//             static_cast<wchar_t>(0x80 | (c & 0x3F))
-//         };
+//     if (file.is_open()) {
+//         char c;
+//         while (file.get(c)) {
+//             if (c != ' ' && c != '\n') {
+//                 fileContents += c;
+//             }
+//         }
+//         file.close();
 //     }
 //     else {
-//         return {
-//             static_cast<wchar_t>(0xF0 | ((c >> 18) & 0x07)),
-//             static_cast<wchar_t>(0x80 | ((c >> 12) & 0x3F)),
-//             static_cast<wchar_t>(0x80 | ((c >> 6) & 0x3F)),
-//             static_cast<wchar_t>(0x80 | (c & 0x3F))
-//         };
+//         return;
+//     }
+
+//     vector<pair<char, string>> letterNumberPairs;
+
+//     char lastNonDigit = '\0';
+//     string currentNumber;
+
+//     for (char c : fileContents) {
+//         if (isdigit(c)) {
+//             currentNumber += c;
+//         }
+//         else {
+//             if (!currentNumber.empty()) {
+//                 letterNumberPairs.push_back(make_pair(lastNonDigit, currentNumber));
+//                 currentNumber.clear();
+//             }
+//             lastNonDigit = c;
+//         }
+//     }
+//     letterNumberPairs.push_back(make_pair(lastNonDigit, currentNumber));
+
+//     for (const auto& pair : letterNumberPairs) {
+//         if (pair.first == 'p') {
+//             *P = cpp_int(pair.second);
+//         }
+//         else if (pair.first == 'q') {
+//             *Q = cpp_int(pair.second);
+//         }
+//         else if (pair.first == 'e') {
+//             *E = cpp_int(pair.second);
+//         }
 //     }
 // }
 
+// cpp_int mod_inverse(cpp_int a, cpp_int m) {
+//     cpp_int m0 = m;
+//     cpp_int y = 0, x = 1;
+//     if (m == 1)
+//         return 0;
+//     while (a > 1) {
+//         cpp_int q = a / m;
+//         cpp_int t = m;
+//         m = a % m, a = t;
+//         t = y;
+//         y = x - q * y;
+//         x = t;
+//     }
+//     if (x < 0)
+//         x += m0;
+//     return x;
+// }
 
-// int main() {
-//     wifstream inFile("2_in.txt");
-//     wofstream debugFile("debug.txt");
-//     wofstream decryptedFile("decrypted.txt");
+// cpp_int rsa_encrypt(cpp_int plaintext, cpp_int E, cpp_int N) {
+//     return powm(plaintext, E, N);
+// }
+
+
+// int calculate_block_length(const cpp_int& N) {
+//     cpp_int block_size = 0xFF;
+//     cpp_int value = 1;
+//     int block_length = -1;
+
+//     while (value < N) {
+//         value *= block_size;
+//         block_length++;
+//     }
+//     return block_length;
+// }
+
+
+// int main()
+// {
+//     _setmode(_fileno(stdout), _O_U16TEXT);
+
+//     cpp_int P;
+//     cpp_int Q;
+//     cpp_int E;
+//     GetPQEValues("2_keymat.txt", &P, &Q, &E);
+//     cpp_int N = P * Q;
+//     cpp_int phi_N = (P - 1) * (Q - 1);
+//     cpp_int D = mod_inverse(E, phi_N);
+//     int block_length = calculate_block_length(N);
+//     wifstream inFile("2_in.txt", ios::binary);
+//     wofstream debugFile("2_debug.txt");
+//     wofstream encryptFile("2_encrypted.txt");
+//     stringstream tempBuffer;
+//     tempBuffer << "q " << P.str() << "\ne " << Q.str() << "\ne " << E.str() << "\nn " << N.str() << "\nd " << D.str() << endl;
+//     string tempStr = tempBuffer.str();
+//     tempBuffer.str("");
+//     tempBuffer.clear(); // Clear state flags.
+//     debugFile << L"--- RSAAlgorithm" << endl;
+//     debugFile << "P " << wstring(tempStr.begin(), tempStr.end()) << endl;
+
 //     wstringstream wss;
 //     wss << inFile.rdbuf();
-//     wstring string = wss.str();
-//     for (size_t i = 0; i < string.size() ; i++) {
-//         if (string[i] == '\n') {
-//             string.replace(i, 1, L"\r\n");
-//             i++;
-//         }
+//     wstring fileText = wss.str();
+//     wstring temp = fileText.substr(0, 3);
+    
+//     // check if has unicode
+//     if (temp == L"ï»¿") {
+//         // replace weird characters at start
+//         fileText.replace(0, 3, L"");
 //     }
-//     int block_length = 18;
-//     size_t  pos = 0;
-//     while (pos < string.size()) {
-//         wstring block = string.substr(pos, block_length);
-//         int count = 0;
-//         for (wchar_t& c : block) {
-//             //wchar_t c = string[i];
-//             if (c == L'\n') {
-//                 debugFile << "[" << count << "]" << " '\\n' ";
-//             }
-//             else if (c == L'\r') {
-//                 debugFile << "[" << count << "]" << " '\\r' ";
+//     vector<wstring> blocks;
+//     size_t filePos = 0;
+//     while (filePos < fileText.size()) {
+//         wstring block = fileText.substr(filePos, block_length);
+//         blocks.push_back(block);
+//         filePos += block_length;
+//     }
+//     debugFile << "*** START ENCRYPTING ***\n" << endl;
+
+//     int charCount = 0;
+//     for (wstring block : blocks) {
+//         cpp_int plaintext_number = 0;
+//         for (wchar_t c : block) {
+//              if (int(char(c)) < 0) {
+//                 //unicode
+//                 debugFile << "[" << dec << charCount << "]" << " '0x" << hex << uppercase << int(c) << "' ";
 //             }
 //             else {
-//                 debugFile << "[" << count << "]" << " '" << c << "' : ";
-//                 std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> converter;
-//                 //std::string utf8Hex = converter.to_bytes(c);
-//                 std::string utf8Hex = converter.to_bytes(L'•');
-//                 cout << hex << uppercase << utf8Hex << endl;
-//                 for (char c : utf8Hex) {
-//                    debugFile << hex << uppercase << (static_cast<unsigned char>(c));
+//                 // has ascii representation
+//                 if (c == L'\n') {
+//                     debugFile << "[" << dec << charCount << "]" << " '\\n' ";
 //                 }
-//                 debugFile << endl;
+//                 else if (c == L'\r') {
+//                     debugFile << "[" << dec << charCount << "]" << " '\\r' ";
+//                 }
+//                 else if (c == L'\t') {
+//                     debugFile << "[" << dec << charCount << "]" << " '\\t' ";
+//                 }
+//                 else {
+//                     debugFile << "[" << dec << charCount << "]" << " '" << c << "' ";
+//                 }
 //             }
-//             count++;
+//              plaintext_number = plaintext_number *256 + static_cast<unsigned char>(c);
+//              charCount++;
 //         }
+//         if (charCount == block_length)
+//             encryptFile << hex << block_length << " ";
+//         else 
+//             encryptFile << hex << charCount << " ";
+//         cpp_int ciphertext_number = rsa_encrypt(plaintext_number, E, N);
+//         tempBuffer << hex << uppercase << ciphertext_number;
+//         tempStr = tempBuffer.str();
+//         tempBuffer.str("");
+//         tempBuffer.clear();
+//         encryptFile << hex << uppercase << wstring(tempStr.begin(), tempStr.end()) << endl;
+//         charCount = 0;
 //         debugFile << endl;
-//         pos += block_length;
 //     }
+//     debugFile << "*** END ENCRYPTING ***\n" << endl;
 
 //     return 0;
 // }
