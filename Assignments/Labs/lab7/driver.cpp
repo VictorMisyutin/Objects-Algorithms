@@ -257,14 +257,6 @@ int main() {
         }
         ciphertextFile.close();
         decryptedFile.close();
-        //try {
-        //    FileComparator::compareFiles(to_string(a) + "_in.dat", to_string(a) + "_decrypted.dat");
-        //    cout << to_string(a) << ": Files are identical." << endl;
-        //}
-        //catch (const exception& e) {
-        //    cerr << "Error: " << e.what() << endl;
-        //}
-        //cout << endl;
         if (compareFiles(to_string(a) + "_in.dat", to_string(a) + "_decrypted.dat")) {
             cout << to_string(a) << " the same " << endl;
         }
