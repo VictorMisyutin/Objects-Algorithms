@@ -366,19 +366,20 @@ int main() {
 
 // int main()
 // {
+//     int FILENUM = 2;
 //     _setmode(_fileno(stdout), _O_U16TEXT);
 
 //     cpp_int P;
 //     cpp_int Q;
 //     cpp_int E;
-//     GetPQEValues("2_keymat.txt", &P, &Q, &E);
+//     GetPQEValues(to_string(FILENUM) + "_keymat.txt", &P, &Q, &E);
 //     cpp_int N = P * Q;
 //     cpp_int phi_N = (P - 1) * (Q - 1);
 //     cpp_int D = mod_inverse(E, phi_N);
 //     int block_length = calculate_block_length(N);
-//     wifstream inFile("2_in.txt", ios::binary);
-//     wofstream debugFile("2_debug.txt");
-//     wofstream encryptFile("2_encrypted.txt");
+//     wifstream inFile(to_string(FILENUM) + "_in.txt", ios::binary);
+//     wofstream debugFile(to_string(FILENUM) + "_debug.txt");
+//     wofstream encryptFile(to_string(FILENUM) + "_encrypted.txt");
 //     stringstream tempBuffer;
 //     tempBuffer << "q " << P.str() << "\ne " << Q.str() << "\ne " << E.str() << "\nn " << N.str() << "\nd " << D.str() << endl;
 //     string tempStr = tempBuffer.str();
@@ -404,10 +405,12 @@ int main() {
 //         blocks.push_back(block);
 //         filePos += block_length;
 //     }
-//     debugFile << "*** START ENCRYPTING ***\n" << endl;
-
+//     debugFile << L"*** Encrypting " << to_wstring(FILENUM) << L"_in.dat, size " << fileText.size() << L" -> " << to_wstring(FILENUM) << L"_encrypted.txt * **\n" << endl;
+//     int blockCount = 0;
 //     int charCount = 0;
 //     for (wstring block : blocks) {
+//         debugFile << L"--- RSACodec::encryptStream block #" << dec << blockCount << L", max length " << dec << block_length << L" ---\n" << endl;
+//         debugFile << L"BlockReader::readData - Requested count " << dec << block_length << L" bytes, got" << endl;
 //         cpp_int plaintext_number = 0;
 //         for (wchar_t c : block) {
 //              if (int(char(c)) < 0) {
@@ -432,20 +435,47 @@ int main() {
 //              plaintext_number = plaintext_number *256 + static_cast<unsigned char>(c);
 //              charCount++;
 //         }
-//         if (charCount == block_length)
-//             encryptFile << hex << block_length << " ";
-//         else 
-//             encryptFile << hex << charCount << " ";
 //         cpp_int ciphertext_number = rsa_encrypt(plaintext_number, E, N);
 //         tempBuffer << hex << uppercase << ciphertext_number;
 //         tempStr = tempBuffer.str();
 //         tempBuffer.str("");
 //         tempBuffer.clear();
-//         encryptFile << hex << uppercase << wstring(tempStr.begin(), tempStr.end()) << endl;
-//         charCount = 0;
+//         wstring ciphertextWString = wstring(tempStr.begin(), tempStr.end());
+//         tempBuffer << hex << uppercase << plaintext_number;
+//         tempStr = tempBuffer.str();
+//         tempBuffer.str("");
+//         tempBuffer.clear();
+//         wstring plaintextWString = wstring(tempStr.begin(), tempStr.end());
 //         debugFile << endl;
+
+//         if (charCount == block_length) {
+//             encryptFile << hex << block_length << " ";
+//             debugFile << L"BlockReader::readData - Read 0x" << plaintextWString << L"as " << dec << block_length << L" bytes" << endl;
+//         }
+//         else {
+//             encryptFile << hex << charCount << " ";
+//             debugFile << L"BlockReader::readData - Read 0x" << plaintextWString << L"as " << dec << charCount << L" bytes" << endl;
+//         }
+//         debugFile << L"\nRSAAlgorithm::encrypt 0x" << plaintextWString << " -> 0x" << ciphertextWString << L"\n" << endl;
+//         encryptFile << ciphertextWString << endl;
+//         charCount = 0;
+//         blockCount++;
 //     }
-//     debugFile << "*** END ENCRYPTING ***\n" << endl;
+//     encryptFile.close();
+
+//     wifstream encryptedFile(to_string(FILENUM) + "_encrypted.txt");
+//     wss.str(L"");
+//     wss.clear();
+//     wss << encryptedFile.rdbuf();
+//     fileText = wss.str();
+//     debugFile << L"Encrypted file " << to_wstring(FILENUM) << L"_encrypted.txt size is " << fileText.size() << "\n" << endl;
+
+//     wofstream decryptedFile(to_string(FILENUM) + "_decrypted.txt");
+//     debugFile << L"***Decrypting " << to_wstring(FILENUM) << L"_encrypted.txt, " << fileText.size() << L" -> " << to_wstring(FILENUM) << "_decrypted.dat * **\n" << endl;
+//     // loop through each line in the encrypted file
+//     // grab pairs of hex values and turn them into characters
+//     // if int(char) is negative then add anothe char until the whole thing becomes positive
 
 //     return 0;
 // }
+
