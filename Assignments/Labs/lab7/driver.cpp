@@ -220,8 +220,6 @@ int main()
     }
     encryptFile.close();
 
-    std::locale::global(std::locale(""));
-
 
     wifstream encryptedFile(to_string(FILENUM) + "_encrypted.txt");
     wofstream decryptedFile(to_string(FILENUM) + "_decrypted.dat");
@@ -246,54 +244,69 @@ int main()
         encrypted_blocks.push_back(temp);
     }
 
-
     ofstream unicodeFile(to_string(FILENUM) + "_unicode.bin", std::ios::binary);
     for (const auto& encrypted_block : encrypted_blocks) {
         wstring text_hex = encrypted_block.second;
-        for (size_t i = 0; i < encrypted_block.first*2; i += 2) {
+        for (size_t i = 0; i < encrypted_block.second.size(); i += 2) {
             wstring hex_character = text_hex.substr(i, 2);
             int character_val;
             wstringstream(hex_character) >> hex >> character_val;
             if (int(char(character_val)) < 0) {
-                wstring unicode_code = L"";
-                unicode_code += hex_character;
-                size_t pos = i + 2;
-                wstringstream(text_hex.substr(pos, 2)) >> hex >> character_val;
-                while (int(char(character_val)) < 0) {
-                    unicode_code += text_hex.substr(pos, 2);
-                    pos += 2;
-                    try {
-                        wstringstream(text_hex.substr(pos, 2)) >> hex >> character_val;
+                size_t oldIVal = i;
+                try{
+                    std::locale::global(std::locale(""));
+                    wstring unicode_code = L"";
+                    unicode_code += hex_character;
+                    debugFile << "[" << dec << (i/2) << "] '0x" << hex << character_val<< "' ";
+                    i += 2;
+                    wstringstream(text_hex.substr(i, 2)) >> hex >> character_val;
+                    while (int(char(character_val)) < 0) {
+                        unicode_code += text_hex.substr(i, 2);
+                        debugFile << "[" << dec << (i / 2) << "] '0x" << hex << character_val << "' ";
+                        i += 2;
+                        try {
+                            wstringstream(text_hex.substr(i, 2)) >> hex >> character_val;
+                        }
+                        catch (exception e) {
+                            break;
+                        }
                     }
-                    catch (exception e){
-                        break;
-                    }
+                    i -= 2;
+                    //decryptedFile << unicode_code;
+
+                    unsigned char unicodeChar[] = { std::stoi(unicode_code.substr(0,2), nullptr, 16), std::stoi(unicode_code.substr(2,2), nullptr, 16), std::stoi(unicode_code.substr(4,2), nullptr, 16)};
+                    unicodeFile.write(reinterpret_cast<char*>(unicodeChar), sizeof(unicodeChar));
+                    unicodeFile.close();
+                    ifstream unicodefile(to_string(FILENUM) + "_unicode.bin", std::ios::binary);
+                    unsigned char unicodeChar_new[4];
+                    unicodefile.read(reinterpret_cast<char*>(unicodeChar_new), sizeof(unicodeChar_new));
+                    unicodefile.clear();
+                    unicodefile.close();
+
+                    string utf8String(reinterpret_cast<const char*>(unicodeChar_new), sizeof(unicodeChar_new));
+                    wstring_convert<std::codecvt_utf8<wchar_t>> converter;
+                    wstring unicodeString = converter.from_bytes(utf8String);
+                    decryptedFile << unicodeString;
                 }
-                //decryptedFile << unicode_code;
-                i = pos - 2;
-                wstring tempOne = unicode_code.substr(0, 2);
-                wstring tempTwo = unicode_code.substr(2, 2);
-                wstring tempThree = unicode_code.substr(4, 2);
-
-                unsigned char unicodeChar[] = { std::stoi(unicode_code.substr(0,2), nullptr, 16), std::stoi(unicode_code.substr(2,2), nullptr, 16), std::stoi(unicode_code.substr(4,2), nullptr, 16)};
-                unicodeFile.write(reinterpret_cast<char*>(unicodeChar), sizeof(unicodeChar));
-                unicodeFile.close();
-                ifstream unicodefile(to_string(FILENUM) + "_unicode.bin", std::ios::binary);
-                unsigned char unicodeChar_new[3];
-                unicodefile.read(reinterpret_cast<char*>(unicodeChar_new), sizeof(unicodeChar_new));
-                unicodefile.clear();
-                unicodefile.close();
-
-                string utf8String(reinterpret_cast<const char*>(unicodeChar_new), sizeof(unicodeChar_new));
-                wstring_convert<std::codecvt_utf8<wchar_t>> converter;
-                wstring unicodeString = converter.from_bytes(utf8String);
-                decryptedFile << unicodeString;
+                catch (exception e){
+                    i = oldIVal;
+                    wcout << e.what() << endl;
+                }
             }
             else {
                 decryptedFile << wchar_t(character_val);
+                if (wchar_t(character_val) == L'\r') {
+                }
+                else if (wchar_t(character_val) == L'\n') {
+                    debugFile << "[" << dec << (i/2) << "] '\\n' ";
+                }
+                else {
+                    debugFile << "[" << dec << (i/2) << "] '" << wchar_t(character_val) << "' ";
+                }
             }
             //wcout << static_cast<wchar_t>(character_val) << " ";
         }
+        debugFile << endl;
 
     }
 
