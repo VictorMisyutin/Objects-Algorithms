@@ -4,8 +4,14 @@
 #define ROOM
 
 #include "patient.h"
+#include <thread>
+#include <stdlib.h>
+#include <unistd.h>
 
-int TIME_CONSTANT; // time to treat patient = TIME_CONSTANT * severity 
+// I am setting this to 1 for now because I am going use a timer to keep track of
+// how long it takes to run the program and I dont want the "simulation" to take 
+// a few minutes to complete. It should just take a few seconds (at most).
+int TIME_CONSTANT = 1; // time to treat patient = TIME_CONSTANT * severity 
 
 class Room {
 
@@ -28,7 +34,7 @@ public:
         this->occupied=occupied;
     }
 
-        //occupied bool getter function - Mike
+    //occupied bool getter function - Mike
     bool IsOccupied(){
         return occupied;
     }
@@ -38,14 +44,25 @@ public:
         return specialty;
     }
 
-    //time taken to treat the patient given the severity and specialty of the room - Jonathan
-    int TimeToTreat(Patient p) {
-        if (p.GetSeverity() == specialty)
-            return (TIME_CONSTANT * p.GetSeverity() / 2); 
-        else
-            return (TIME_CONSTANT * p.GetSeverity());
+    void TreatingPatientTimer(int time){
+        sleep(time*1000);
+        occupied = false;
     }
 
+    //time taken to treat the patient given the severity and specialty of the room - Jonathan
+    int TreatPatient(Patient p) {
+        int timeNeeded;
+        if (p.GetSeverity() == specialty)
+            timeNeeded = TIME_CONSTANT * p.GetSeverity() / 2; 
+        else
+            timeNeeded = TIME_CONSTANT * p.GetSeverity();
+
+        occupied = true;
+
+        // make a new thread, basically a timer that will make unoccupy the room after a certain amount of time
+        std::thread thread_obj(TreatingPatientTimer, timeNeeded);
+        return timeNeeded;
+    }
 
 private:
     bool occupied;

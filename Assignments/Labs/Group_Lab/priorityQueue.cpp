@@ -5,8 +5,8 @@ PriorityQueue::PriorityQueue() {
 void PriorityQueue::enqueue(Patient* n) {
     queue.push_back(n);
     sort(queue.begin(), queue.end(), [](Patient* a, Patient* b) {
-        return a->GetSeverity() < b->GetSeverity();
-        });
+        return a->GetSeverity() > b->GetSeverity();
+    });
 }
 Patient* PriorityQueue::peek() {
     return queue[0];

@@ -25,7 +25,7 @@ class Patient {
             //get and set patient's condition severity
             std::cout << "Rate the severity of your condition from 1-5 (inclusive): ";
             std::cin >> severity;
-            std::cout <<  std::endl;
+            std::cout << std::endl;
         }
 
         //severity getter function

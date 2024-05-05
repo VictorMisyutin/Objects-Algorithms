@@ -9,8 +9,6 @@
 using namespace std;
 
 class PriorityQueue {
-private:
-    vector<Patient*> queue;
 public:
     PriorityQueue();
     void enqueue(Patient* p);
@@ -20,5 +18,7 @@ public:
     bool IsEmpty();
     int Size();
     bool Contains(Patient* p);
+private:
+    vector<Patient*> queue;
 };
 #endif

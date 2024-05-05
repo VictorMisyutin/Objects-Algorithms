@@ -9,7 +9,7 @@
 
 class Hospital {
 public:
-    //constructor
+    // default constructor
     Hospital(){};
 
     // Will Prompt the user for how many rooms they want for each "specialization"
@@ -35,7 +35,8 @@ public:
         // this also feels very clunky idk maybe there's a better loop that doesnt involve 3 iterators
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < numRooms[i+1]; j++) {
-                roomsVec.push_back(Room(roomNumCounter,i));
+                Room* newRoom = new Room(roomNumCounter, i);
+                roomsVec.push_back(newRoom);
                 roomNumCounter++;
             }
         }
@@ -43,20 +44,54 @@ public:
 
     // Create a new patient and add them to the patients vector
     void CheckInNewPatient() {
-        Patient newPatient;
-        newPatient.PromptForInfo();
-        patientsQueue.enqueue(&newPatient);
-        // IDEA: could have a doctor check in - doctor could have specialization - patiennt could choose a category of health issue and have a "medical need" attribute
+        Patient* newPatient = new Patient();
+        newPatient->PromptForInfo();
+        patientsQueue.enqueue(newPatient);
     }
 
     // Prints all untreated patients
     void PrintCurrentPatients(){
         patientsQueue.Print();
     }
+    
+    // Place a Patient into an available room
+    void SendPatientToRoom(){
+        int patientSeverity = patientsQueue.peek()->GetSeverity();
+
+        Room* emptyRoom;
+        // look for room that specializes in that severity
+        for(Room* room : roomsVec){
+            if(room->GetSpecialty() == patientSeverity){
+                emptyRoom = room; // in case we dont find a room that matches
+                if(!room->IsOccupied()){
+                    totalTimeTreatingPatients += room->TreatPatient(*patientsQueue.pop());
+                    return;
+                }
+            }
+        }
+        // in case we did not find a room that matched patient severity
+        if(emptyRoom){
+            // we found an empty room
+            totalTimeTreatingPatients += emptyRoom->TreatPatient(*patientsQueue.pop());
+        }
+        else{
+            // no empty room
+            std::cout << "No Rooms Are currently Available" << std::endl;
+        }
+    }
+
+    int GetTotalTreatingTime(){
+        return totalTimeTreatingPatients;
+    }
+
+    bool IsEmpty(){
+        return patientsQueue.IsEmpty();
+    }
 
 private:
+    int totalTimeTreatingPatients; // keep track of total amount of time in minutes hospital was treating patients.
     int roomCount; // stores total number of rooms, both empty and occupied
-    std::vector<Room> roomsVec; // stores each room object
+    std::vector<Room*> roomsVec; // stores each room object
     PriorityQueue patientsQueue; // stores all of the untreated patients.
 };
 
