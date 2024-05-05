@@ -1,5 +1,10 @@
-
-
+// *************************************************************************
+//  Class: Patient
+//
+//  Description: Each Patient has a name and a severity that dictates
+//               how quickly they will be treated.
+//
+// *************************************************************************
 #ifndef PATIENT
 #define PATIENT
 
@@ -7,54 +12,60 @@
 #include <iostream>
 
 class Patient {
-    
-    public:
 
-        //default constructor
-        Patient(): severity(1){};
+public:
 
-        //severity parameter constructor
-        Patient(int s): severity(s){};
+    //default constructor
+    Patient() : severity(1) {};
 
-        void PromptForInfo(){
-            //get and set patient's name
-            std::cout << "What is your name: ";
-            std::cin >> name;
-            std::cout << std::endl;
-            
-            //get and set patient's condition severity
-            std::cout << "Rate the severity of your condition from 1-5 (inclusive): ";
-            std::cin >> severity;
-            std::cout << std::endl;
-        }
+    //severity parameter constructor
+    Patient(int s) : severity(s) {};
 
-        //severity getter function
-        int GetSeverity(){
-            return severity;
-        }
+    void PromptForInfo() {
+        std::cin.ignore();
 
-        //severity setter function
-        void SetSeverity(int severity){
-            this->severity=severity;
-        }
+        
+        //get and set patient's name
+        std::cout << "Patient name: ";
+        std::getline(std::cin, name);
+        std::cout << std::endl;
 
-        //sets patient's name
-        void SetName(std::string name){
-            this->name = name;
-        }
+        //TODO:
+        // make sure user enters valid input for the severity
+        
+        //get and set patient's condition severity
+        std::cout << "Severity of condition from 1-5 (inclusive): ";
+        std::cin >> severity;
+        std::cout << std::endl;
+    }
 
-        //sets patient's name
-        std::string GetName(){
-            return name;
-        }
+    //severity getter function
+    int GetSeverity() {
+        return severity;
+    }
 
-        void Print(){
-            std::cout << "Name: " << name << ", Severity: " << std::to_string(severity) << std::endl;
-        }
+    //severity setter function
+    void SetSeverity(int severity) {
+        this->severity = severity;
+    }
 
-    private:
-        int severity;
-        std::string name;
+    //sets patient's name
+    void SetName(std::string name) {
+        this->name = name;
+    }
+
+    //sets patient's name
+    std::string GetName() const{
+        return name;
+    }
+
+    void Print() {
+        std::cout << "Name: " << name << ", Severity: " << std::to_string(severity) << std::endl;
+    }
+
+private:
+    int severity;
+    std::string name;
 
 
 
