@@ -1,0 +1,9 @@
+studentName Example
+p 7
+q 37
+e 257
+d 137
+n 259
+r 65
+plainNumber=C
+s 67 OK

@@ -1,0 +1,9 @@
+studentName Student3
+p 19
+q 59
+e 263
+d 131
+n 1121
+r 807
+plainNumber=I
+s 73 OK
