@@ -1,246 +1,207 @@
+// If the generic classes and interfaces seem too complex, just write a code
+// that works with concrete classes and int or Integer keys and values.
+//
+// Some languages do not require to specify variable/function types but you 
+// shall specify types (or hints) if possible.
+//
+// If the language requires it, use int where plain number is enough and use 
+// a pointer to int or Integer type where the value can be a number or the null. 
+//
+// Use const or final instead of constant keyword if the language supports it. Otherwise 
+// diregard (omit) it.
+//
+// & and * in variable definitions are C++ specific hints. Disregard them
+// if using other languages.
+//
+// In value1 EQUAL value2, you must use language specific comparison that compares
+// values data, not just references. For example, in the case of Java Integer type,
+// value1 == value2 compares two references and so cannot be used.
+//
+// Some languages do not have null keyword and so you need to replace it appropriately.
+// For example, use nullptr in C++.
+//
+// Some languages have vectors. If not, replace vector with an appropriate array type.
+//
+// INPUT_STREAM and OUTPUT_STREAM are to be replaced with language specific
+// input/output streams. Replace stdout with a stream corresponding the standard
+// output (usually your terminal or console).
+//
+// stream << expression means write the expression value as text to the stream.
+// stream >> variable means read from the stream, convert from text, and assign to 
+// the variable. Replace << and >> with appropriate language constructs. 
+#include "LinearProbingHash.h"
+#include "QuadraticProbingHash.h"
+#include "DoubleHashingProbingHash.h"
+
 #include <iostream>
 #include <fstream>
-#include <vector>
-#include <algorithm>
 #include <string>
-#include <bits/stdc++.h>
+#include <vector>
 
 using namespace std;
 
-int hash_function(int key) {
-    // return key;
-    unsigned int result = (key >> 8) | ((key & 0xFF) << 16);
-    return result;
+const int tableSize = 191;	// hash tables size
+const int doubleFactor = 181;	// factor R to be used in double hashing
+
+ofstream	fout;		// declare and create an output stream
+ofstream	fout2;		// declare and create an output stream
+
+
+void testKeyValue(
+    string description,
+    HashInterface<int, int>& hashTable,
+    const int		 key,
+    const int		 value
+) {
+    const int previousCollisions = hashTable.getCollisions();
+
+    hashTable.put(key, value);
+
+    const int* retrievedValue = hashTable.get(key);
+    const string& retrievedText = retrievedValue != nullptr ? to_string(*retrievedValue) : "null";
+
+    fout << to_string(key) << " : " << to_string(value) << " -> " << retrievedText << ", collisions " << (hashTable.getCollisions() - previousCollisions) << "\n";
+
+    if (retrievedValue == nullptr || *retrievedValue != value) {
+        cout << "Retrieved value " << retrievedText << " does not match stored value " << to_string(value) << " for key " << key << "\n";
+        throw runtime_error("value mismatch");
+    }
 }
 
-void linear_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int index = hash_function(key);
-    index = index % table.size();
-    int newCollisions = 0;
-    while (table[index].first != -1) {
-        index = (index + 1) % table.size();
-        newCollisions++;
-    }
-    newCollisions *=2;
-    collisions += newCollisions;
-    table[index] = make_pair(key, value);
-    outputFile << key << " : " << value << " -> " << value << ", collisions: " << newCollisions << endl;
+void testInputKey(
+    const int  	          key,
+    LinearProbingHash<int, int>& lph,
+    QuadraticProbingHash<int,int>&	  qph,
+    DoubleHashingProbingHash<int,int>&	  dhph
+)
+{
+    const int value = key * 2;
+
+    testKeyValue("Linear   ", lph, key, value);
+    testKeyValue("Quadratic", qph, key, value);
+    testKeyValue("Double   ", dhph, key, value);
+
+    fout << "\n";
+
 }
 
-void quadratic_probing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int startingHash = hash_function(key);
-    startingHash = startingHash % table.size();
-    int index = startingHash;
-    int i = 1;
-    int newCollisions = 0;
-    while (table[index].first != -1) {
-        index = (startingHash + i * i) % table.size(); 
-        i++;
-        newCollisions++;
-    }
-    newCollisions *=2;
-    collisions += newCollisions;
-    table[index] = make_pair(key, value);
-    outputFile << key << " : " << value << " -> " << value << ", collisions: " << newCollisions << endl;
+void testData(
+    const string& description,
+    vector<int>* data
+)
+{
+    fout << "Format of output\n";
+    fout << "key : value->retrievedValue, collisions number Collisions\n";
+    fout << "Linear total number Collisions\n";
+    fout << "Quadratic total number Collisions\n";
+    fout << "Double hashing total number Collisions\n" << endl;
+
+
+    fout << "*** " << description << " Start *** " << "\n\n";
+
+    LinearProbingHash<int, int>        lph(tableSize);
+    QuadraticProbingHash<int,int>     qph  ( tableSize );
+    DoubleHashingProbingHash<int, int> dhph ( tableSize, doubleFactor ) ;
+
+
+    // in the file?
+    for (int key : *data) testInputKey(key, lph, qph, dhph);
+
+
+    fout << "Linear    " << lph.getCollisions() << " collisions\n";
+    fout2 << "\n*** Linear Probing " + description + " Start ***\n" << std::endl;
+    lph.printTable(fout2);
+    fout2 << "*** Linear Probing " + description + " end ***\n\n";
+
+
+    fout << "Quadratic    " << qph.getCollisions() << " collisions\n";
+    fout2 << "\n*** Quadratic Probing " + description + " Start ***\n" << std::endl;
+    qph.printTable(fout2);
+    fout2 << "*** Quadratic Probing " + description + " end ***\n\n";
+
+
+    fout << "Double Hashing    " << dhph.getCollisions() << " collisions\n";
+    fout2 << "\n*** Double Hashing Probing " + description + " Start ***\n" << std::endl;
+    dhph.printTable(fout2);
+    fout2 << "*** Double Hashing Probing " + description + " end ***\n\n";
+
+    fout << "\n*** " << description << " End *** " << "\n\n";
+
 }
 
-int double_factor(int key) {
-    int doubleFactor = 181;
-    return doubleFactor - (key % doubleFactor);
+void readData(
+    const string& inputFile,
+    vector<int>* data
+)
+{
+    ifstream  fin(inputFile);
+    int       key;
+
+    while (fin >> key) data->push_back(key);
+
+    fin.close();
 }
 
-void double_hashing_insert(vector<pair<int, int>>& table, int key, int value, int& collisions, ofstream& outputFile) {
-    int startingHash = hash_function(key);
-    startingHash = startingHash % table.size();
-    int index = startingHash;
-    int step = double_factor(key);
-    int count = 1;
-    int newCollisions = 0;
-    while (table[index].first != -1) {
-        index = (startingHash + count*step) % table.size(); 
-        newCollisions++;
-        count++;
-    }
-    newCollisions *=2;
-    collisions += newCollisions;
-    table[index] = make_pair(key, value);
-    outputFile << key << " : " << value << " -> " << value << ", collisions: " << newCollisions << endl;
-}
+void testFile(
 
-void printTable(const vector<pair<int, int>>& table, ofstream& outputFile) {
-    outputFile << "print table.size()=" << table.size() << endl;
-    for (int i = 0 ; i < table.size(); i++) {
-        if (table[i].first != -1) {
-            outputFile << "index=" << i << " key=" << table[i].first << " value=" << table[i].second << endl;
-        } 
-    }  
-}
+    const string& inputFilename,
+    const string& outputFilename1,
+    const string& outputFilename2
+)
+{
+    cout << "Input file " << inputFilename << ", output file " << outputFilename1 << "\n";
 
-struct ProcessResult {
-    vector<int> collisions;
-    vector<pair<int, int>> hash_tables[3];
-};
+    vector<int>*	data = new vector<int>();		// all keys from the input file
+    readData(inputFilename, data);
+    fout.open(outputFilename1);
+    fout2.open( outputFilename2 );
 
-ProcessResult processNumbers(const vector<int>& numbers, ofstream& outputFile) {
-    int table_size = 191;
+    // read data
 
-    ProcessResult result;
-    result.collisions.resize(3);
-    result.collisions[0] = 0;
-    result.collisions[1] = 0;
-    result.collisions[2] = 0;
+    testData("Random Order", data);
 
-    for (int i = 0; i < 3; ++i) {
-        result.hash_tables[i].resize(table_size, make_pair(-1, -1));
+    int i, j;
+    bool swapped;
+    int dataSize = data->size(); // Get the size of the vector
+    for (i = 0; i < dataSize - 1; i++) {
+        swapped = false;
+        for (j = 0; j < dataSize - i - 1; j++) {
+            if ((*data)[j] > (*data)[j + 1]) { // Access elements through the pointer
+                swap((*data)[j], (*data)[j + 1]);
+                swapped = true;
+            }
+        }
+        if (!swapped)
+            break;
     }
 
-    outputFile << "Linear Probing" << endl;
-    for (int num : numbers) {
-        int key = num;
-        int value = 2 * num;
-        linear_probing_insert(result.hash_tables[0], key, value, result.collisions[0], outputFile);
-    }
 
-    outputFile << "\nQuadratic Probing" << endl;
+    testData("Ascending Order", data);
 
-    for (int num : numbers) {
-        int key = num;
-        int value = 2 * num;
-        quadratic_probing_insert(result.hash_tables[1], key, value, result.collisions[1], outputFile);
-    }
+    std::reverse(data->begin(), data->end());
 
-    outputFile << "\nDouble Hashing Probing" << endl;
+    testData("Descending Order", data);
 
-    for (int num : numbers) {
-        int key = num;
-        int value = 2 * num;
-        double_hashing_insert(result.hash_tables[2], key, value, result.collisions[2], outputFile);
-    }
+    fout.close();
+    fout2.close();
 
-    outputFile << endl;
+    cout << "Done\n";
 
-    outputFile << "Linear: " << result.collisions[0] << " collisions" << endl;
-    outputFile << "Quadratic: " << result.collisions[1] << " collisions" << endl;
-    outputFile << "Double: " << result.collisions[2] << " collisions" << endl;
-
-    return result;
 }
 
 int main() {
-    for(int i = 5; i < 9; i++) {
-        ifstream file("in1" + to_string(i) + "0.txt");
-        vector<int> numbers;
-        int num;
-        int size = 0;
-        while (file >> num) {
-            numbers.push_back(num);
-            size++;
-        }
-        file.close();
+    try {
+        testFile("in150.txt", "out150_collisions.txt", "out150_tables.txt");
+        testFile("in160.txt", "out160_collisions.txt", "out160_tables.txt");
+        testFile("in170.txt", "out170_collisions.txt", "out170_tables.txt");
+        testFile("in180.txt", "out180_collisions.txt", "out180_tables.txt");
+    }
+    catch (exception e) {
+        cout << "Exception: " << e.what() << "\n";
 
-        ofstream collisionFile("out1" + to_string(i) + "0_collisions.txt");
-        ofstream tableFile("out1" + to_string(i) + "0_tables.txt");
-
-        // random order
-
-            // collision file
-        collisionFile << "*** Random Order Start ***\n" << endl;
-        ProcessResult randomResult = processNumbers(numbers, collisionFile);
-        vector<pair<int, int>>* hash_tables_random = &randomResult.hash_tables[0];
-        collisionFile << "\n*** Random Order End ***" << endl;
-
-            // table file
-
-                // Linear probing
-        tableFile << "*** Linear probing Random Order Start ***\n" << endl;
-        printTable(hash_tables_random[0], tableFile);
-        tableFile << "\nLinear probing " << randomResult.collisions[0] << " collisions" <<endl;
-        tableFile << "\n*** Linear probing Random Order End ***\n" << endl;
-                
-                // Quadratic probing
-        tableFile << "*** Quadratic probing Random Order Start ***\n" << endl;
-        printTable(hash_tables_random[1], tableFile);
-        tableFile << "\nQuadratic probing " << randomResult.collisions[1] << " collisions" <<endl;
-        tableFile << "\n*** Quadratic probing Random Order End ***\n" << endl;
-
-                // Double Hashing probing
-        tableFile << "*** Double Hashing  probing Random Order Start ***\n" << endl;
-        printTable(hash_tables_random[2], tableFile);
-        tableFile << "\nDouble Hashing probing " << randomResult.collisions[2] << " collisions" <<endl;
-        tableFile << "\n*** Double Hashing probing Random Order End ***\n" << endl;
-
-        // delete[] randomResult.hash_tables;
-
-
-        // ascending order
-        
-        for (int i = 0; i < size - 1; i++) {
-            for (int j = 0; j < size - i - 1; j++) 
-                if (numbers[j] > numbers[j + 1]) 
-                    swap(numbers[j], numbers[j + 1]);
-        }
-            // collision file
-        collisionFile << "*** Ascending Order Start ***\n" << endl;
-        ProcessResult ascResult = processNumbers(numbers, collisionFile);
-        vector<pair<int, int>>* hash_tables_asc = &ascResult.hash_tables[0];
-        collisionFile << "\n*** Ascending Order End ***" << endl;
-
-            // table file
-            
-                // Linear probing
-        tableFile << "*** Linear probing Ascending Order Start ***\n" << endl;
-        printTable(hash_tables_asc[0], tableFile);
-        tableFile << "\nLinear probing " << ascResult.collisions[0] << " collisions" <<endl;
-        tableFile << "\n*** Linear probing Ascending Order End ***\n" << endl;
-                
-                // Quadratic probing
-        tableFile << "*** Quadratic probing Ascending Order Start ***\n" << endl;
-        printTable(hash_tables_asc[1], tableFile);
-        tableFile << "\nQuadratic probing " << ascResult.collisions[1] << " collisions" <<endl;
-        tableFile << "\n*** Quadratic probing Ascending Order End ***\n" << endl;
-
-                // Double Hashing probing
-        tableFile << "*** Double Hashing  probing Ascending Order Start ***\n" << endl;
-        printTable(hash_tables_asc[2], tableFile);
-        tableFile << "\nDouble Hashing probing " << ascResult.collisions[2] << " collisions" <<endl;
-        tableFile << "\n*** Double Hashing probing Ascending Order End ***\n" << endl;
-
-        // delete[] ascResult.hash_tables;
-
-
-        // descending order
-        std::reverse(numbers.begin(), numbers.end());    
-            // collision file
-
-        collisionFile << "*** Descending Order Start ***\n" << endl;
-        ProcessResult descResult = processNumbers(numbers, collisionFile);
-        vector<pair<int, int>>* hash_tables_desc = &descResult.hash_tables[0];
-        collisionFile << "\n*** Descending Order End ***" << endl;
-
-            // table file
-            
-                // Linear probing
-        tableFile << "*** Linear probing Descending Order Start ***\n" << endl;
-        printTable(hash_tables_desc[0], tableFile);
-        tableFile << "\nLienar probing " << descResult.collisions[0] << " collisions" <<endl;
-        tableFile << "\n*** Linear probing Descending Order End ***\n" << endl;
-                
-                // Quadratic probing
-        tableFile << "*** Quadratic probing Descending Order Start ***\n" << endl;
-        printTable(hash_tables_desc[1], tableFile);
-        tableFile << "\nQuadratic probing " << descResult.collisions[1] << " collisions" <<endl;
-        tableFile << "\n*** Quadratic probing Descending Order End ***\n" << endl;
-
-                // Double Hashing probing
-        tableFile << "*** Double Hashing  probing Descending Order Start ***\n" << endl;
-        printTable(hash_tables_desc[2], tableFile);
-        tableFile << "\nDouble Hashing probing " << descResult.collisions[2] << " collisions" <<endl;
-        tableFile << "\n*** Double Hashing probing Descending Order End ***\n" << endl;
-
-        // delete[] descResult.hash_tables;
-
-        collisionFile.close();
     }
 
     return 0;
 }
+
+
