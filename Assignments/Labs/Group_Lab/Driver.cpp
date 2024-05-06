@@ -9,11 +9,10 @@
 #include "hospital.h"
 #include <iostream>
 int main() {
-    // TODO:
-    // I think we should cout some message at the start that tells
-    // the user what our program does.
-    // Also, I added some comments at the top of each file, feel free to change those.
-    
+    std::cout << "This program simulates the time to treat a variable amount of patients with potentially differing" 
+        "levels of illness in a variable amount of rooms, each dedicated to a particualr level of illness.\n\n";
+
+
     //initialize a hospital
     Hospital currHospital;
     currHospital.PromptUserForRooms();
@@ -36,8 +35,7 @@ int main() {
     while (!currHospital.AllRoomsEmpty()) {
     }
     
-    // TODO: 
-    // Here I am just making up some kind of relative time that it took. We can multiply this by some factor N to make it more realistic.
+    //treatment time constant
     float N = 2.0;
     std::cout << "Treating all patients took " << (currHospital.GetTotalTreatingTime() * N) << " minutes." << std::endl;
 

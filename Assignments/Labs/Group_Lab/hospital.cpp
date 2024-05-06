@@ -30,7 +30,6 @@ void Hospital::PromptUserForRooms() {
     int roomNumCounter = 0;
 
     // i = severity, j = iterator for each severity, roomNumCounter self-explanatory
-    // this also feels very clunky idk maybe there's a better loop that doesnt involve 3 iterators
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < numRooms[i + 1]; j++) {
             Room* newRoom = new Room(roomNumCounter, i + 1);
@@ -55,20 +54,6 @@ void Hospital::SendPatientToRoom() {
     // this is because, if you have two patients that finish at the same tim the output messes up,
     // this is a delay so that the output has time to complete before the next patient finishes
     this_thread::sleep_for(chrono::milliseconds(20));
-
-
-    // TODO:
-    // This it totally optional but we can optimize this algorithm
-    // right now, I am dequeing patients based on severity so that people with higher severities get treated first.
-    // if there is no available room that has the specialization == severity
-    // I just save the last empty room I found and place a patient in there.
-    // The problem with that is it takes up an empty room with the next highest severity.
-    // For example, if there is no free room for a person with severity five, they will take up a room
-    // that specializes in four. But now patients with four go to a room with specialization three and so on.
-    // this makes treating each patient way slower.
-    // what we could do instead is, if there is no room that matches a patients severity, we place them in an empty
-    // room that specializes in the lowest severity. This would save the hospital time.
-    // If that made no sense ask me to explain in more detail or just ignore this lol.
 
 
     int patientSeverity = patientsQueue.peek()->GetSeverity();

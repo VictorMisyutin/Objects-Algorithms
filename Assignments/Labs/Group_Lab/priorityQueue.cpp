@@ -2,7 +2,7 @@
 //  Class: Priority Queue (implementation)
 //
 //  Description: Priority Queue stores Patients based on their severity
-//               the more sever the injury, the quicker they are dequed
+//               the more severe the injury, the quicker they are dequed
 //               and sent to a room.
 //
 // *************************************************************************

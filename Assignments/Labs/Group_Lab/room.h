@@ -75,11 +75,7 @@ private:
     int roomNumber;
     int specialty;
 
-    // I am setting this to 1 for now because I am going use a timer to keep track of
-    // how long it takes to run the program and I dont want the "simulation" to take 
-    // a few minutes to complete. It should just take a few seconds (at most).
-    // TODO: we can ask the user for this value or just find a sweet spot that isnt too slow or fast
-    //the lower the value the more sped up the program displays will be.
+   
     const float TIME_CONSTANT = 1.4; // time to treat patient = TIME_CONSTANT * severity 
 
 };
