@@ -316,10 +316,3 @@ int main()
     // if int(char) is negative then add anothe char until the whole thing becomes positive
     return 0;
 }
-
-// akjbsdjab 
-// hb asbdja bsab
-// adknladl ada
-// dlasndanda
-// slndasdnak
-// dna
