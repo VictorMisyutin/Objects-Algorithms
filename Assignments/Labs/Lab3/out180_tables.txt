@@ -1,4 +1,5 @@
-*** Linear probing Random Order Start ***
+
+*** Linear Probing Random Order Start ***
 
 print table.size()=191
 index=0 key=6053 value=12106
@@ -90,13 +91,13 @@ index=85 key=434 value=868
 index=86 key=2407 value=4814
 index=87 key=9946 value=19892
 index=88 key=1606 value=3212
-index=89 key=2407 value=4814
+index=89 key=8294 value=16588
 index=90 key=1970 value=3940
 index=91 key=5826 value=11652
-index=92 key=8294 value=16588
+index=92 key=1292 value=2584
 index=93 key=9260 value=18520
-index=94 key=1292 value=2584
-index=95 key=4579 value=9158
+index=94 key=4579 value=9158
+index=95 key=5578 value=11156
 index=96 key=5793 value=11586
 index=97 key=880 value=1760
 index=98 key=9079 value=18158
@@ -107,30 +108,30 @@ index=102 key=9360 value=18720
 index=103 key=8534 value=17068
 index=104 key=212 value=424
 index=105 key=245 value=490
-index=106 key=5578 value=11156
-index=107 key=7014 value=14028
-index=108 key=3712 value=7424
+index=106 key=7014 value=14028
+index=107 key=3712 value=7424
+index=108 key=7972 value=15944
 index=109 key=1921 value=3842
 index=110 key=2325 value=4650
 index=111 key=6859 value=13718
 index=112 key=4720 value=9440
 index=113 key=3919 value=7838
 index=114 key=2714 value=5428
-index=115 key=7972 value=15944
-index=116 key=8325 value=16650
+index=115 key=8325 value=16650
+index=116 key=9936 value=19872
 index=117 key=2169 value=4338
-index=118 key=9936 value=19872
+index=118 key=7904 value=15808
 index=119 key=3168 value=6336
-index=120 key=7904 value=15808
-index=121 key=9893 value=19786
+index=120 key=9893 value=19786
+index=121 key=7015 value=14030
 index=122 key=9675 value=19350
 index=123 key=1270 value=2540
 index=124 key=8387 value=16774
 index=125 key=931 value=1862
-index=126 key=1606 value=3212
+index=126 key=2568 value=5136
 index=127 key=3077 value=6154
 index=128 key=5324 value=10648
-index=129 key=7015 value=14030
+index=129 key=935 value=1870
 index=130 key=4523 value=9046
 index=131 key=4671 value=9342
 index=132 key=9353 value=18706
@@ -141,9 +142,9 @@ index=136 key=8238 value=16476
 index=137 key=2863 value=5726
 index=138 key=7553 value=15106
 index=139 key=6323 value=12646
-index=140 key=2568 value=5136
+index=140 key=7419 value=14838
 index=141 key=774 value=1548
-index=142 key=935 value=1870
+index=142 key=9626 value=19252
 index=143 key=990 value=1980
 index=144 key=9081 value=18162
 index=145 key=3937 value=7874
@@ -153,8 +154,8 @@ index=148 key=849 value=1698
 index=149 key=618 value=1236
 index=150 key=304 value=608
 index=151 key=7645 value=15290
-index=152 key=7419 value=14838
-index=153 key=9626 value=19252
+index=152 key=1293 value=2586
+index=153 key=495 value=990
 index=154 key=3615 value=7230
 index=155 key=4928 value=9856
 index=156 key=7406 value=14812
@@ -162,7 +163,6 @@ index=157 key=7348 value=14696
 index=158 key=3467 value=6934
 index=159 key=4062 value=8124
 index=160 key=5638 value=11276
-index=161 key=1293 value=2586
 index=162 key=6150 value=12300
 index=163 key=3632 value=7264
 index=164 key=9263 value=18526
@@ -174,7 +174,6 @@ index=169 key=735 value=1470
 index=170 key=2254 value=4508
 index=171 key=4558 value=9116
 index=172 key=6127 value=12254
-index=173 key=495 value=990
 index=174 key=8587 value=17174
 index=175 key=6069 value=12138
 index=186 key=7572 value=15144
@@ -182,11 +181,12 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Linear probing 2604 collisions
+Linear probing 2284 collisions
 
-*** Linear probing Random Order End ***
+*** Linear Probing Random Order end ***
 
-*** Quadratic probing Random Order Start ***
+
+*** Quadratic Probing Random Order Start ***
 
 print table.size()=191
 index=0 key=9936 value=19872
@@ -277,13 +277,12 @@ index=85 key=434 value=868
 index=86 key=2407 value=4814
 index=87 key=9946 value=19892
 index=88 key=1606 value=3212
-index=89 key=1606 value=3212
 index=90 key=1970 value=3940
 index=91 key=5826 value=11652
 index=92 key=5578 value=11156
 index=93 key=9260 value=18520
 index=94 key=1292 value=2584
-index=95 key=2407 value=4814
+index=95 key=8294 value=16588
 index=96 key=5793 value=11586
 index=97 key=880 value=1760
 index=98 key=9079 value=18158
@@ -309,7 +308,7 @@ index=117 key=2169 value=4338
 index=118 key=3712 value=7424
 index=119 key=3168 value=6336
 index=120 key=7419 value=14838
-index=122 key=8294 value=16588
+index=122 key=9675 value=19350
 index=123 key=1270 value=2540
 index=124 key=8387 value=16774
 index=126 key=212 value=424
@@ -323,7 +322,6 @@ index=133 key=6752 value=13504
 index=134 key=526 value=1052
 index=135 key=8238 value=16476
 index=137 key=2863 value=5726
-index=138 key=9675 value=19350
 index=139 key=6323 value=12646
 index=140 key=7553 value=15106
 index=141 key=774 value=1548
@@ -370,14 +368,15 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Quadratic probing 792 collisions
+Quadratic probing 770 collisions
 
-*** Quadratic probing Random Order End ***
+*** Quadratic Probing Random Order end ***
 
-*** Double Hashing  probing Random Order Start ***
+
+*** Double Hashing Probing Random Order Start ***
 
 print table.size()=191
-index=0 key=5122 value=10244
+index=0 key=8534 value=17068
 index=1 key=8282 value=16564
 index=2 key=2016 value=4032
 index=3 key=6020 value=12040
@@ -385,184 +384,183 @@ index=4 key=1363 value=2726
 index=5 key=8480 value=16960
 index=6 key=2214 value=4428
 index=7 key=2618 value=5236
-index=8 key=2753 value=5506
-index=10 key=537 value=1074
+index=8 key=5352 value=10704
+index=9 key=2568 value=5136
+index=10 key=6069 value=12138
 index=11 key=2816 value=5632
-index=12 key=849 value=1698
-index=13 key=945 value=1890
+index=12 key=489 value=978
+index=13 key=931 value=1862
 index=14 key=8010 value=16020
 index=15 key=3840 value=7680
 index=16 key=4774 value=9548
 index=17 key=9456 value=18912
-index=18 key=5816 value=11632
+index=18 key=6053 value=12106
 index=19 key=212 value=424
 index=20 key=5946 value=11892
-index=21 key=1293 value=2586
+index=21 key=880 value=1760
 index=22 key=762 value=1524
 index=23 key=192 value=384
 index=24 key=5509 value=11018
 index=25 key=1826 value=3652
-index=26 key=931 value=1862
-index=27 key=242 value=484
-index=28 key=3712 value=7424
+index=26 key=7553 value=15106
+index=27 key=3467 value=6934
+index=28 key=9893 value=19786
 index=29 key=754 value=1508
 index=30 key=7680 value=15360
-index=31 key=9626 value=19252
-index=32 key=9743 value=19486
+index=31 key=9263 value=18526
+index=32 key=1293 value=2586
 index=33 key=3578 value=7156
-index=34 key=9398 value=18796
-index=35 key=8325 value=16650
+index=34 key=537 value=1074
+index=35 key=7941 value=15882
 index=36 key=3520 value=7040
 index=37 key=3437 value=6874
-index=38 key=7553 value=15106
-index=39 key=4720 value=9440
-index=40 key=2927 value=5854
-index=41 key=2901 value=5802
-index=42 key=6856 value=13712
+index=40 key=9946 value=19892
+index=41 key=5798 value=11596
+index=42 key=7406 value=14812
 index=43 key=8086 value=16172
-index=44 key=6203 value=12406
+index=44 key=1921 value=3842
 index=45 key=7772 value=15544
 index=46 key=8367 value=16734
-index=47 key=2249 value=4498
+index=47 key=7014 value=14028
 index=48 key=5279 value=10558
-index=49 key=6258 value=12516
+index=49 key=3077 value=6154
 index=50 key=8078 value=16156
-index=51 key=1473 value=2946
+index=51 key=6127 value=12254
 index=52 key=2703 value=5406
-index=53 key=8145 value=16290
+index=53 key=9626 value=19252
 index=54 key=2728 value=5456
-index=55 key=1292 value=2584
+index=55 key=984 value=1968
 index=56 key=7814 value=15628
 index=57 key=9870 value=19740
-index=58 key=6432 value=12864
+index=58 key=1926 value=3852
 index=59 key=6443 value=12886
 index=60 key=812 value=1624
 index=61 key=1555 value=3110
-index=62 key=5602 value=11204
-index=63 key=9044 value=18088
-index=64 key=8534 value=17068
+index=62 key=2753 value=5506
+index=63 key=8145 value=16290
+index=64 key=8294 value=16588
 index=65 key=4718 value=9436
 index=66 key=2348 value=4696
 index=67 key=7030 value=14060
-index=69 key=4834 value=9668
+index=68 key=3919 value=7838
+index=69 key=5361 value=10722
 index=70 key=259 value=518
-index=71 key=9579 value=19158
+index=71 key=1532 value=3064
+index=72 key=935 value=1870
 index=73 key=4818 value=9636
-index=74 key=7904 value=15808
+index=74 key=3924 value=7848
 index=75 key=5965 value=11930
-index=76 key=2883 value=5766
-index=77 key=7972 value=15944
-index=78 key=3924 value=7848
-index=79 key=3937 value=7874
-index=80 key=4579 value=9158
+index=76 key=1647 value=3294
+index=77 key=5578 value=11156
+index=78 key=242 value=484
+index=79 key=9360 value=18720
+index=80 key=9482 value=18964
 index=81 key=6188 value=12376
 index=82 key=5957 value=11914
 index=83 key=6891 value=13782
 index=84 key=434 value=868
-index=85 key=4650 value=9300
+index=85 key=3676 value=7352
 index=86 key=2407 value=4814
-index=87 key=3077 value=6154
-index=88 key=2652 value=5304
-index=89 key=5533 value=11066
+index=88 key=1606 value=3212
+index=89 key=5926 value=11852
 index=90 key=1970 value=3940
 index=91 key=5826 value=11652
-index=92 key=2568 value=5136
-index=93 key=5361 value=10722
-index=94 key=9800 value=19600
-index=95 key=9946 value=19892
+index=92 key=4720 value=9440
+index=93 key=9260 value=18520
+index=94 key=4834 value=9668
+index=95 key=9800 value=19600
 index=96 key=5793 value=11586
 index=97 key=6875 value=13750
 index=98 key=9079 value=18158
-index=99 key=6053 value=12106
+index=99 key=4062 value=8124
 index=100 key=9739 value=19478
 index=101 key=3812 value=7624
-index=102 key=735 value=1470
-index=103 key=4928 value=9856
-index=104 key=9936 value=19872
-index=105 key=7419 value=14838
-index=106 key=1926 value=3852
-index=107 key=984 value=1968
-index=108 key=935 value=1870
-index=109 key=1921 value=3842
+index=103 key=1572 value=3144
+index=104 key=3937 value=7874
+index=105 key=245 value=490
+index=106 key=526 value=1052
+index=107 key=2883 value=5766
+index=108 key=4924 value=9848
+index=109 key=9579 value=19158
 index=110 key=2325 value=4650
 index=111 key=6859 value=13718
-index=112 key=9886 value=19772
-index=113 key=3919 value=7838
+index=112 key=6856 value=13712
+index=113 key=9044 value=18088
 index=114 key=2714 value=5428
-index=116 key=3467 value=6934
+index=115 key=9743 value=19486
+index=116 key=945 value=1890
 index=117 key=2169 value=4338
-index=118 key=8294 value=16588
 index=119 key=3168 value=6336
-index=120 key=9263 value=18526
-index=121 key=880 value=1760
-index=122 key=9675 value=19350
+index=121 key=3712 value=7424
+index=122 key=2901 value=5802
 index=123 key=1270 value=2540
 index=124 key=8387 value=16774
-index=126 key=7014 value=14028
-index=127 key=1572 value=3144
-index=128 key=9260 value=18520
-index=129 key=7430 value=14860
+index=127 key=8557 value=17114
+index=128 key=6203 value=12406
+index=129 key=495 value=990
 index=130 key=4523 value=9046
 index=131 key=9353 value=18706
-index=132 key=9893 value=19786
+index=132 key=8325 value=16650
 index=133 key=6752 value=13504
-index=134 key=1606 value=3212
-index=135 key=8238 value=16476
-index=136 key=4419 value=8838
+index=134 key=4928 value=9856
+index=135 key=5602 value=11204
+index=136 key=7645 value=15290
 index=137 key=2863 value=5726
-index=139 key=6210 value=12420
-index=140 key=3676 value=7352
+index=138 key=6323 value=12646
+index=139 key=1473 value=2946
+index=140 key=4671 value=9342
 index=141 key=774 value=1548
-index=142 key=6323 value=12646
+index=142 key=4579 value=9158
 index=143 key=990 value=1980
 index=144 key=9081 value=18162
-index=145 key=489 value=978
-index=146 key=7941 value=15882
+index=145 key=2927 value=5854
+index=146 key=9886 value=19772
 index=147 key=3814 value=7628
 index=148 key=618 value=1236
-index=149 key=2407 value=4814
+index=149 key=7419 value=14838
 index=150 key=304 value=608
-index=151 key=495 value=990
-index=153 key=9360 value=18720
+index=151 key=9398 value=18796
+index=152 key=6210 value=12420
 index=154 key=3615 value=7230
-index=155 key=4062 value=8124
-index=156 key=5578 value=11156
+index=155 key=849 value=1698
+index=156 key=9675 value=19350
 index=157 key=7348 value=14696
-index=159 key=4924 value=9848
+index=158 key=5122 value=10244
+index=159 key=7972 value=15944
 index=160 key=5638 value=11276
-index=161 key=7015 value=14030
+index=161 key=4419 value=8838
 index=162 key=6150 value=12300
 index=163 key=3632 value=7264
-index=164 key=5352 value=10704
-index=165 key=4671 value=9342
+index=164 key=4650 value=9300
+index=165 key=735 value=1470
 index=166 key=7852 value=15704
-index=167 key=526 value=1052
-index=168 key=1532 value=3064
-index=169 key=7406 value=14812
-index=170 key=5324 value=10648
+index=167 key=7430 value=14860
+index=168 key=5324 value=10648
+index=169 key=5816 value=11632
+index=170 key=1292 value=2584
 index=171 key=4558 value=9116
-index=172 key=6127 value=12254
-index=173 key=1606 value=3212
+index=172 key=6258 value=12516
+index=173 key=9936 value=19872
 index=174 key=8587 value=17174
-index=175 key=6069 value=12138
-index=176 key=2254 value=4508
-index=177 key=9976 value=19952
-index=178 key=7645 value=15290
-index=179 key=5798 value=11596
-index=180 key=5926 value=11852
-index=182 key=245 value=490
-index=183 key=1647 value=3294
+index=175 key=2652 value=5304
+index=176 key=7015 value=14030
+index=177 key=5533 value=11066
+index=178 key=2254 value=4508
+index=180 key=9976 value=19952
+index=181 key=7904 value=15808
+index=183 key=8238 value=16476
+index=185 key=2249 value=4498
 index=186 key=7572 value=15144
-index=187 key=9482 value=18964
-index=188 key=8557 value=17114
+index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Double Hashing probing 716 collisions
+Double Hashing probing 672 collisions
 
-*** Double Hashing probing Random Order End ***
+*** Double Hashing Probing Random Order end ***
 
-*** Linear probing Ascending Order Start ***
+
+*** Linear Probing Ascending Order Start ***
 
 print table.size()=191
 index=0 key=6053 value=12106
@@ -652,28 +650,28 @@ index=83 key=5578 value=11156
 index=84 key=434 value=868
 index=85 key=5957 value=11914
 index=86 key=2407 value=4814
-index=87 key=2407 value=4814
+index=87 key=6188 value=12376
 index=88 key=1606 value=3212
-index=89 key=1606 value=3212
+index=89 key=6891 value=13782
 index=90 key=1292 value=2584
 index=91 key=1970 value=3940
 index=92 key=5826 value=11652
 index=93 key=3712 value=7424
-index=94 key=6188 value=12376
-index=95 key=6891 value=13782
+index=94 key=7014 value=14028
+index=95 key=7972 value=15944
 index=96 key=245 value=490
 index=97 key=880 value=1760
 index=98 key=5793 value=11586
 index=99 key=6875 value=13750
-index=100 key=7014 value=14028
+index=100 key=8294 value=16588
 index=101 key=212 value=424
 index=102 key=3812 value=7624
-index=103 key=7972 value=15944
+index=103 key=8534 value=17068
 index=104 key=7015 value=14030
-index=105 key=8294 value=16588
-index=106 key=8534 value=17068
-index=107 key=9079 value=18158
-index=108 key=9260 value=18520
+index=105 key=9079 value=18158
+index=106 key=9260 value=18520
+index=107 key=9360 value=18720
+index=108 key=9579 value=19158
 index=109 key=1921 value=3842
 index=110 key=2325 value=4650
 index=111 key=4720 value=9440
@@ -681,20 +679,20 @@ index=112 key=6859 value=13718
 index=113 key=1293 value=2586
 index=114 key=2714 value=5428
 index=115 key=3919 value=7838
-index=116 key=9360 value=18720
+index=116 key=9739 value=19478
 index=117 key=2169 value=4338
-index=118 key=9579 value=19158
+index=118 key=9743 value=19486
 index=119 key=3168 value=6336
-index=120 key=9739 value=19478
-index=121 key=9743 value=19486
+index=120 key=9870 value=19740
+index=121 key=9886 value=19772
 index=122 key=9675 value=19350
 index=123 key=931 value=1862
 index=124 key=1270 value=2540
 index=125 key=8387 value=16774
-index=126 key=9870 value=19740
+index=126 key=9893 value=19786
 index=127 key=3077 value=6154
 index=128 key=5324 value=10648
-index=129 key=9886 value=19772
+index=129 key=9936 value=19872
 index=130 key=4523 value=9046
 index=131 key=4671 value=9342
 index=132 key=6323 value=12646
@@ -705,7 +703,7 @@ index=136 key=7553 value=15106
 index=137 key=2863 value=5726
 index=138 key=8238 value=16476
 index=139 key=9353 value=18706
-index=140 key=9893 value=19786
+index=140 key=9946 value=19892
 index=141 key=774 value=1548
 index=142 key=9626 value=19252
 index=143 key=990 value=1980
@@ -718,7 +716,7 @@ index=149 key=3814 value=7628
 index=150 key=304 value=608
 index=151 key=495 value=990
 index=152 key=7941 value=15882
-index=153 key=9936 value=19872
+index=153 key=9976 value=19952
 index=154 key=3467 value=6934
 index=155 key=3615 value=7230
 index=156 key=4062 value=8124
@@ -726,7 +724,6 @@ index=157 key=4928 value=9856
 index=158 key=7348 value=14696
 index=159 key=7406 value=14812
 index=160 key=5638 value=11276
-index=161 key=9946 value=19892
 index=162 key=2254 value=4508
 index=163 key=3632 value=7264
 index=164 key=6150 value=12300
@@ -738,7 +735,6 @@ index=169 key=9263 value=18526
 index=170 key=9800 value=19600
 index=171 key=4558 value=9116
 index=172 key=6127 value=12254
-index=173 key=9976 value=19952
 index=174 key=8587 value=17174
 index=175 key=6069 value=12138
 index=186 key=7572 value=15144
@@ -746,11 +742,12 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Linear probing 2604 collisions
+Linear probing 2284 collisions
 
-*** Linear probing Ascending Order End ***
+*** Linear Probing Ascending Order end ***
 
-*** Quadratic probing Ascending Order Start ***
+
+*** Quadratic Probing Ascending Order Start ***
 
 print table.size()=191
 index=0 key=9800 value=19600
@@ -785,7 +782,6 @@ index=28 key=2883 value=5766
 index=29 key=754 value=1508
 index=30 key=3676 value=7352
 index=31 key=4419 value=8838
-index=32 key=9976 value=19952
 index=33 key=1926 value=3852
 index=34 key=3578 value=7156
 index=35 key=8325 value=16650
@@ -840,9 +836,8 @@ index=83 key=5578 value=11156
 index=84 key=434 value=868
 index=85 key=6188 value=12376
 index=86 key=2407 value=4814
-index=87 key=2407 value=4814
+index=87 key=6891 value=13782
 index=88 key=1606 value=3212
-index=89 key=1606 value=3212
 index=90 key=1292 value=2584
 index=91 key=1970 value=3940
 index=92 key=5826 value=11652
@@ -852,7 +847,7 @@ index=95 key=7972 value=15944
 index=96 key=245 value=490
 index=97 key=880 value=1760
 index=98 key=5957 value=11914
-index=99 key=6891 value=13782
+index=99 key=8078 value=16156
 index=100 key=5793 value=11586
 index=101 key=212 value=424
 index=102 key=3812 value=7624
@@ -868,7 +863,7 @@ index=111 key=4720 value=9440
 index=112 key=6859 value=13718
 index=113 key=1293 value=2586
 index=114 key=2714 value=5428
-index=115 key=8078 value=16156
+index=115 key=9976 value=19952
 index=116 key=9739 value=19478
 index=117 key=2169 value=4338
 index=118 key=9260 value=18520
@@ -934,199 +929,199 @@ index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Quadratic probing 904 collisions
+Quadratic probing 874 collisions
 
-*** Quadratic probing Ascending Order End ***
+*** Quadratic Probing Ascending Order end ***
 
-*** Double Hashing  probing Ascending Order Start ***
+
+*** Double Hashing Probing Ascending Order Start ***
 
 print table.size()=191
-index=1 key=7015 value=14030
+index=0 key=8534 value=17068
+index=1 key=4650 value=9300
 index=2 key=2016 value=4032
 index=3 key=2568 value=5136
 index=4 key=537 value=1074
 index=5 key=984 value=1968
 index=6 key=2214 value=4428
-index=7 key=495 value=990
-index=8 key=5352 value=10704
-index=9 key=4671 value=9342
+index=7 key=2618 value=5236
+index=8 key=5122 value=10244
+index=9 key=7406 value=14812
 index=11 key=2816 value=5632
 index=12 key=489 value=978
-index=13 key=9893 value=19786
+index=13 key=1363 value=2726
 index=14 key=6210 value=12420
-index=15 key=3676 value=7352
+index=15 key=3840 value=7680
 index=16 key=4774 value=9548
-index=17 key=4579 value=9158
-index=18 key=5816 value=11632
-index=20 key=5798 value=11596
+index=17 key=5602 value=11204
+index=18 key=6053 value=12106
+index=19 key=8587 value=17174
+index=20 key=4834 value=9668
+index=21 key=7680 value=15360
 index=22 key=762 value=1524
 index=23 key=192 value=384
 index=24 key=935 value=1870
 index=25 key=1826 value=3652
 index=27 key=242 value=484
-index=28 key=9886 value=19772
+index=28 key=9081 value=18162
 index=29 key=754 value=1508
 index=30 key=4419 value=8838
-index=31 key=6053 value=12106
-index=32 key=8480 value=16960
+index=31 key=9263 value=18526
 index=33 key=1926 value=3852
-index=34 key=9398 value=18796
-index=35 key=8325 value=16650
+index=34 key=5798 value=11596
+index=35 key=6188 value=12376
 index=36 key=3520 value=7040
-index=37 key=2883 value=5766
-index=38 key=9260 value=18520
-index=39 key=3437 value=6874
-index=40 key=5361 value=10722
-index=41 key=2901 value=5802
-index=42 key=6443 value=12886
+index=37 key=3437 value=6874
+index=38 key=8325 value=16650
+index=39 key=5946 value=11892
+index=40 key=8238 value=16476
+index=41 key=9456 value=18912
+index=42 key=6856 value=13712
 index=43 key=8086 value=16172
-index=44 key=6203 value=12406
-index=45 key=7680 value=15360
-index=46 key=5533 value=11066
+index=44 key=6150 value=12300
+index=45 key=7772 value=15544
+index=46 key=8367 value=16734
 index=47 key=2249 value=4498
 index=48 key=5279 value=10558
-index=49 key=6258 value=12516
 index=50 key=8078 value=16156
-index=51 key=1473 value=2946
+index=51 key=495 value=990
 index=52 key=2703 value=5406
-index=53 key=8145 value=16290
+index=53 key=9626 value=19252
 index=54 key=2728 value=5456
-index=55 key=9626 value=19252
+index=55 key=9800 value=19600
 index=56 key=2753 value=5506
-index=57 key=8557 value=17114
-index=58 key=9353 value=18706
-index=59 key=4834 value=9668
+index=57 key=6891 value=13782
+index=58 key=3615 value=7230
+index=59 key=1473 value=2946
 index=60 key=812 value=1624
 index=61 key=1555 value=3110
-index=62 key=4924 value=9848
+index=62 key=4523 value=9046
 index=63 key=945 value=1890
-index=64 key=6856 value=13712
+index=64 key=7014 value=14028
 index=65 key=4718 value=9436
 index=66 key=2348 value=4696
 index=67 key=7030 value=14060
-index=68 key=6752 value=13504
-index=69 key=7814 value=15628
+index=68 key=3919 value=7838
+index=69 key=5361 value=10722
 index=70 key=259 value=518
 index=71 key=1532 value=3064
 index=73 key=4818 value=9636
-index=74 key=5793 value=11586
-index=75 key=3578 value=7156
+index=74 key=3924 value=7848
+index=75 key=5965 value=11930
 index=76 key=1647 value=3294
-index=77 key=7419 value=14838
-index=78 key=7772 value=15544
-index=79 key=9870 value=19740
-index=80 key=3812 value=7624
+index=78 key=7015 value=14030
+index=79 key=8294 value=16588
+index=80 key=5533 value=11066
 index=81 key=2927 value=5854
 index=82 key=5957 value=11914
 index=83 key=5578 value=11156
 index=84 key=434 value=868
-index=85 key=4650 value=9300
 index=86 key=2407 value=4814
-index=87 key=4720 value=9440
+index=87 key=8282 value=16564
 index=88 key=1606 value=3212
-index=89 key=1363 value=2726
+index=89 key=5926 value=11852
 index=90 key=1292 value=2584
 index=91 key=5826 value=11652
+index=92 key=9482 value=18964
 index=93 key=3712 value=7424
-index=94 key=9079 value=18158
-index=95 key=3924 value=7848
+index=95 key=7972 value=15944
 index=96 key=245 value=490
 index=97 key=6875 value=13750
-index=98 key=5602 value=11204
-index=99 key=5965 value=11930
-index=100 key=6020 value=12040
+index=98 key=6752 value=13504
+index=99 key=6203 value=12406
+index=100 key=9044 value=18088
 index=101 key=212 value=424
-index=102 key=8387 value=16774
-index=103 key=4928 value=9856
-index=104 key=2618 value=5236
-index=105 key=9044 value=18088
-index=107 key=3077 value=6154
+index=102 key=9739 value=19478
+index=103 key=1572 value=3144
+index=104 key=1270 value=2540
+index=105 key=7572 value=15144
+index=106 key=9579 value=19158
+index=107 key=9936 value=19872
+index=108 key=4924 value=9848
 index=109 key=1921 value=3842
-index=110 key=1270 value=2540
-index=111 key=1606 value=3212
-index=112 key=7348 value=14696
+index=110 key=2325 value=4650
+index=111 key=4720 value=9440
+index=112 key=9743 value=19486
 index=113 key=1293 value=2586
 index=114 key=2714 value=5428
-index=115 key=7014 value=14028
-index=116 key=7941 value=15882
+index=115 key=7941 value=15882
+index=116 key=9946 value=19892
 index=117 key=2169 value=4338
-index=118 key=8294 value=16588
+index=118 key=9260 value=18520
 index=119 key=3168 value=6336
-index=120 key=7852 value=15704
-index=121 key=880 value=1760
-index=122 key=9675 value=19350
+index=120 key=7814 value=15628
+index=121 key=6127 value=12254
+index=122 key=2901 value=5802
 index=123 key=931 value=1862
-index=124 key=3814 value=7628
-index=125 key=9743 value=19486
-index=126 key=5509 value=11018
-index=127 key=1572 value=3144
+index=124 key=8387 value=16774
+index=125 key=1970 value=3940
+index=127 key=3077 value=6154
 index=128 key=5324 value=10648
-index=129 key=5122 value=10244
-index=130 key=4523 value=9046
+index=129 key=8480 value=16960
+index=130 key=3676 value=7352
 index=131 key=7553 value=15106
-index=132 key=1970 value=3940
+index=132 key=5509 value=11018
 index=133 key=526 value=1052
-index=134 key=7904 value=15808
-index=135 key=8238 value=16476
-index=136 key=6891 value=13782
+index=134 key=4928 value=9856
+index=135 key=4671 value=9342
 index=137 key=2863 value=5726
-index=138 key=2325 value=4650
-index=139 key=8010 value=16020
-index=140 key=9946 value=19892
+index=138 key=6323 value=12646
+index=139 key=6859 value=13718
+index=140 key=3578 value=7156
 index=141 key=774 value=1548
-index=142 key=6323 value=12646
+index=142 key=6069 value=12138
 index=143 key=990 value=1980
-index=144 key=9081 value=18162
+index=144 key=4579 value=9158
 index=145 key=3937 value=7874
 index=146 key=7645 value=15290
 index=147 key=849 value=1698
 index=148 key=618 value=1236
-index=149 key=2407 value=4814
+index=149 key=7419 value=14838
 index=150 key=304 value=608
-index=151 key=2652 value=5304
-index=152 key=9800 value=19600
-index=153 key=9360 value=18720
-index=154 key=3467 value=6934
+index=151 key=9398 value=18796
+index=152 key=9079 value=18158
+index=153 key=3812 value=7624
+index=154 key=880 value=1760
 index=155 key=4062 value=8124
-index=156 key=9976 value=19952
-index=157 key=3840 value=7680
-index=159 key=3615 value=7230
+index=156 key=4558 value=9116
+index=157 key=7348 value=14696
+index=158 key=9870 value=19740
+index=159 key=6443 value=12886
 index=160 key=5638 value=11276
-index=161 key=9936 value=19872
+index=161 key=2883 value=5766
 index=162 key=2254 value=4508
 index=163 key=3632 value=7264
 index=165 key=735 value=1470
-index=166 key=6150 value=12300
+index=166 key=7852 value=15704
 index=167 key=7430 value=14860
-index=168 key=6859 value=13718
-index=169 key=7406 value=14812
-index=170 key=9739 value=19478
-index=171 key=4558 value=9116
-index=172 key=6127 value=12254
-index=173 key=8367 value=16734
-index=174 key=8587 value=17174
-index=175 key=6069 value=12138
-index=176 key=3919 value=7838
-index=177 key=8282 value=16564
-index=178 key=7972 value=15944
-index=179 key=9579 value=19158
-index=180 key=5926 value=11852
-index=181 key=8534 value=17068
-index=182 key=5946 value=11892
-index=183 key=9456 value=18912
-index=184 key=6188 value=12376
-index=185 key=9263 value=18526
-index=186 key=7572 value=15144
-index=187 key=9482 value=18964
+index=168 key=9353 value=18706
+index=169 key=5816 value=11632
+index=171 key=3814 value=7628
+index=172 key=6020 value=12040
+index=173 key=5793 value=11586
+index=174 key=7904 value=15808
+index=175 key=2652 value=5304
+index=176 key=9886 value=19772
+index=177 key=9360 value=18720
+index=178 key=9893 value=19786
+index=179 key=5352 value=10704
+index=180 key=9976 value=19952
+index=181 key=6258 value=12516
+index=182 key=9675 value=19350
+index=183 key=8145 value=16290
+index=184 key=8557 value=17114
+index=185 key=8010 value=16020
+index=186 key=3467 value=6934
 index=188 key=6432 value=12864
 index=189 key=314 value=628
 index=190 key=1544 value=3088
 
-Double Hashing probing 694 collisions
+Double Hashing probing 672 collisions
 
-*** Double Hashing probing Ascending Order End ***
+*** Double Hashing Probing Ascending Order end ***
 
-*** Linear probing Descending Order Start ***
+
+*** Linear Probing Descending Order Start ***
 
 print table.size()=191
 index=0 key=314 value=628
@@ -1221,23 +1216,23 @@ index=88 key=4579 value=9158
 index=89 key=2927 value=5854
 index=90 key=2407 value=4814
 index=91 key=5826 value=11652
-index=92 key=2407 value=4814
+index=92 key=1970 value=3940
 index=93 key=9260 value=18520
 index=94 key=3712 value=7424
 index=95 key=7972 value=15944
 index=96 key=5793 value=11586
 index=97 key=6875 value=13750
 index=98 key=9079 value=18158
-index=99 key=1970 value=3940
+index=99 key=1606 value=3212
 index=100 key=9739 value=19478
 index=101 key=9360 value=18720
 index=102 key=8534 value=17068
 index=103 key=3812 value=7624
 index=104 key=7015 value=14030
-index=105 key=1606 value=3212
-index=106 key=1606 value=3212
-index=107 key=1292 value=2584
-index=108 key=880 value=1760
+index=105 key=1292 value=2584
+index=106 key=880 value=1760
+index=107 key=762 value=1524
+index=108 key=754 value=1508
 index=109 key=1921 value=3842
 index=110 key=2325 value=4650
 index=111 key=6859 value=13718
@@ -1245,20 +1240,20 @@ index=112 key=4720 value=9440
 index=113 key=3919 value=7838
 index=114 key=2714 value=5428
 index=115 key=1293 value=2586
-index=116 key=762 value=1524
+index=116 key=537 value=1074
 index=117 key=2169 value=4338
-index=118 key=754 value=1508
+index=118 key=489 value=978
 index=119 key=3168 value=6336
-index=120 key=537 value=1074
-index=121 key=489 value=978
+index=120 key=434 value=868
+index=121 key=259 value=518
 index=122 key=9675 value=19350
 index=123 key=1270 value=2540
 index=124 key=8387 value=16774
 index=125 key=931 value=1862
-index=126 key=434 value=868
+index=126 key=245 value=490
 index=127 key=3077 value=6154
 index=128 key=5324 value=10648
-index=129 key=259 value=518
+index=129 key=242 value=484
 index=130 key=6323 value=12646
 index=131 key=9353 value=18706
 index=132 key=7553 value=15106
@@ -1269,7 +1264,7 @@ index=136 key=4671 value=9342
 index=137 key=4523 value=9046
 index=138 key=2863 value=5726
 index=139 key=526 value=1052
-index=140 key=245 value=490
+index=140 key=212 value=424
 index=141 key=9626 value=19252
 index=142 key=774 value=1548
 index=143 key=990 value=1980
@@ -1282,7 +1277,7 @@ index=149 key=849 value=1698
 index=150 key=618 value=1236
 index=151 key=495 value=990
 index=152 key=304 value=608
-index=153 key=242 value=484
+index=153 key=192 value=384
 index=154 key=7406 value=14812
 index=155 key=4928 value=9856
 index=156 key=4062 value=8124
@@ -1290,7 +1285,6 @@ index=157 key=7348 value=14696
 index=158 key=3615 value=7230
 index=159 key=3467 value=6934
 index=160 key=5638 value=11276
-index=161 key=212 value=424
 index=162 key=9263 value=18526
 index=163 key=6258 value=12516
 index=164 key=6150 value=12300
@@ -1302,7 +1296,6 @@ index=169 key=2254 value=4508
 index=170 key=735 value=1470
 index=171 key=4558 value=9116
 index=172 key=6127 value=12254
-index=173 key=192 value=384
 index=174 key=8587 value=17174
 index=175 key=6069 value=12138
 index=186 key=7572 value=15144
@@ -1310,11 +1303,12 @@ index=188 key=6432 value=12864
 index=189 key=6053 value=12106
 index=190 key=1544 value=3088
 
-Lienar probing 2604 collisions
+Linear probing 2314 collisions
 
-*** Linear probing Descending Order End ***
+*** Linear Probing Descending Order end ***
 
-*** Quadratic probing Descending Order Start ***
+
+*** Quadratic Probing Descending Order Start ***
 
 print table.size()=191
 index=0 key=259 value=518
@@ -1327,7 +1321,6 @@ index=6 key=2214 value=4428
 index=7 key=2618 value=5236
 index=8 key=5352 value=10704
 index=9 key=984 value=1968
-index=10 key=212 value=424
 index=11 key=2816 value=5632
 index=12 key=9976 value=19952
 index=13 key=9893 value=19786
@@ -1381,7 +1374,7 @@ index=60 key=4834 value=9668
 index=61 key=8557 value=17114
 index=62 key=5602 value=11204
 index=63 key=8145 value=16290
-index=64 key=2407 value=4814
+index=64 key=945 value=1890
 index=65 key=4718 value=9436
 index=66 key=5122 value=10244
 index=67 key=7030 value=14060
@@ -1406,7 +1399,7 @@ index=85 key=4579 value=9158
 index=86 key=9946 value=19892
 index=87 key=8294 value=16588
 index=88 key=1606 value=3212
-index=89 key=1606 value=3212
+index=89 key=935 value=1870
 index=90 key=2927 value=5854
 index=91 key=5957 value=11914
 index=92 key=5826 value=11652
@@ -1433,7 +1426,6 @@ index=112 key=4720 value=9440
 index=113 key=3919 value=7838
 index=114 key=2714 value=5428
 index=117 key=2169 value=4338
-index=118 key=434 value=868
 index=119 key=3168 value=6336
 index=120 key=2753 value=5506
 index=121 key=880 value=1760
@@ -1441,7 +1433,7 @@ index=122 key=9675 value=19350
 index=123 key=1270 value=2540
 index=124 key=8387 value=16774
 index=125 key=1555 value=3110
-index=126 key=935 value=1870
+index=126 key=212 value=424
 index=127 key=3077 value=6154
 index=128 key=5324 value=10648
 index=129 key=1293 value=2586
@@ -1492,30 +1484,30 @@ index=179 key=4523 value=9046
 index=180 key=4558 value=9116
 index=181 key=812 value=1624
 index=182 key=489 value=978
-index=184 key=945 value=1890
+index=184 key=434 value=868
 index=186 key=7572 value=15144
 index=188 key=6432 value=12864
 index=189 key=6053 value=12106
 index=190 key=1544 value=3088
 
-Quadratic probing 886 collisions
+Quadratic probing 822 collisions
 
-*** Quadratic probing Descending Order End ***
+*** Quadratic Probing Descending Order end ***
 
-*** Double Hashing  probing Descending Order Start ***
+
+*** Double Hashing Probing Descending Order Start ***
 
 print table.size()=191
-index=0 key=304 value=608
+index=0 key=1926 value=3852
 index=1 key=9743 value=19486
 index=2 key=2016 value=4032
 index=3 key=6020 value=12040
-index=4 key=5798 value=11596
+index=4 key=2863 value=5726
 index=5 key=8480 value=16960
-index=6 key=2214 value=4428
+index=6 key=4720 value=9440
 index=7 key=2618 value=5236
 index=8 key=5352 value=10704
-index=9 key=4671 value=9342
-index=10 key=537 value=1074
+index=10 key=3632 value=7264
 index=11 key=2816 value=5632
 index=12 key=9976 value=19952
 index=13 key=9893 value=19786
@@ -1523,170 +1515,169 @@ index=14 key=8010 value=16020
 index=15 key=9579 value=19158
 index=16 key=4774 value=9548
 index=17 key=9456 value=18912
-index=18 key=3168 value=6336
-index=19 key=212 value=424
+index=18 key=4834 value=9668
+index=19 key=2927 value=5854
 index=20 key=9398 value=18796
-index=21 key=774 value=1548
-index=22 key=2407 value=4814
-index=23 key=2652 value=5304
+index=21 key=2703 value=5406
+index=22 key=1363 value=2726
+index=23 key=1647 value=3294
 index=24 key=5509 value=11018
 index=25 key=7904 value=15808
-index=26 key=2901 value=5802
-index=27 key=4834 value=9668
-index=28 key=434 value=868
+index=26 key=3437 value=6874
+index=27 key=5798 value=11596
+index=28 key=1270 value=2540
 index=29 key=4650 value=9300
 index=30 key=7680 value=15360
-index=31 key=2728 value=5456
-index=32 key=849 value=1698
+index=32 key=1293 value=2586
 index=33 key=3578 value=7156
-index=34 key=245 value=490
+index=34 key=2169 value=4338
 index=35 key=8325 value=16650
-index=36 key=5926 value=11852
-index=37 key=6188 value=12376
-index=38 key=3812 value=7624
-index=39 key=4720 value=9440
-index=40 key=7645 value=15290
-index=41 key=3437 value=6874
+index=36 key=3520 value=7040
+index=37 key=3924 value=7848
+index=39 key=762 value=1524
+index=40 key=242 value=484
+index=41 key=4419 value=8838
 index=42 key=6856 value=13712
 index=43 key=9886 value=19772
 index=44 key=6203 value=12406
-index=45 key=8282 value=16564
+index=45 key=7772 value=15544
 index=46 key=8367 value=16734
 index=47 key=9936 value=19872
 index=48 key=5279 value=10558
-index=49 key=1926 value=3852
+index=49 key=3077 value=6154
 index=50 key=8078 value=16156
 index=51 key=1473 value=2946
 index=52 key=5816 value=11632
-index=53 key=8145 value=16290
-index=54 key=3520 value=7040
-index=55 key=1292 value=2584
+index=53 key=489 value=978
+index=54 key=2728 value=5456
+index=55 key=984 value=1968
 index=56 key=7814 value=15628
 index=57 key=9870 value=19740
-index=58 key=1606 value=3212
+index=58 key=3615 value=7230
 index=59 key=6443 value=12886
-index=60 key=812 value=1624
+index=60 key=2407 value=4814
 index=61 key=1555 value=3110
 index=62 key=5602 value=11204
-index=63 key=9044 value=18088
-index=64 key=8534 value=17068
+index=63 key=8145 value=16290
+index=64 key=8294 value=16588
 index=65 key=4718 value=9436
 index=66 key=5122 value=10244
-index=67 key=7772 value=15544
-index=68 key=1363 value=2726
-index=69 key=762 value=1524
-index=70 key=2254 value=4508
-index=71 key=7419 value=14838
+index=67 key=7030 value=14060
+index=68 key=3919 value=7838
+index=69 key=5361 value=10722
+index=70 key=1572 value=3144
+index=71 key=7852 value=15704
+index=72 key=935 value=1870
 index=73 key=4818 value=9636
-index=74 key=5946 value=11892
+index=74 key=2753 value=5506
 index=75 key=5965 value=11930
 index=76 key=9482 value=18964
-index=77 key=1532 value=3064
-index=78 key=3467 value=6934
-index=79 key=242 value=484
-index=80 key=4579 value=9158
+index=77 key=192 value=384
+index=78 key=2249 value=4498
+index=79 key=4579 value=9158
+index=80 key=2348 value=4696
 index=81 key=7014 value=14028
 index=82 key=5957 value=11914
 index=83 key=6891 value=13782
-index=84 key=1544 value=3088
-index=85 key=5793 value=11586
+index=84 key=8086 value=16172
+index=85 key=3676 value=7352
 index=86 key=9946 value=19892
-index=87 key=7852 value=15704
-index=88 key=3676 value=7352
-index=89 key=2883 value=5766
-index=90 key=1970 value=3940
+index=87 key=304 value=608
+index=88 key=1606 value=3212
+index=89 key=5926 value=11852
+index=90 key=7645 value=15290
 index=91 key=5826 value=11652
 index=93 key=9260 value=18520
-index=94 key=314 value=628
+index=94 key=849 value=1698
 index=95 key=7972 value=15944
-index=96 key=7030 value=14060
+index=96 key=7553 value=15106
 index=97 key=6875 value=13750
 index=98 key=9079 value=18158
-index=99 key=1293 value=2586
+index=99 key=618 value=1236
 index=100 key=9739 value=19478
 index=101 key=9360 value=18720
-index=102 key=8086 value=16172
-index=103 key=4928 value=9856
+index=102 key=259 value=518
 index=104 key=7015 value=14030
-index=106 key=2348 value=4696
-index=107 key=984 value=1968
-index=108 key=3840 value=7680
-index=109 key=5361 value=10722
+index=105 key=3712 value=7424
+index=106 key=1292 value=2584
+index=107 key=2883 value=5766
+index=108 key=4924 value=9848
+index=109 key=1921 value=3842
 index=110 key=2325 value=4650
 index=111 key=6859 value=13718
-index=112 key=4924 value=9848
-index=113 key=3919 value=7838
+index=112 key=3168 value=6336
+index=113 key=9044 value=18088
 index=114 key=2714 value=5428
-index=116 key=5578 value=11156
-index=117 key=2169 value=4338
-index=118 key=8294 value=16588
-index=119 key=3632 value=7264
-index=120 key=489 value=978
-index=121 key=880 value=1760
+index=116 key=945 value=1890
+index=117 key=6150 value=12300
+index=119 key=5638 value=11276
+index=120 key=2652 value=5304
+index=121 key=2568 value=5136
 index=122 key=9675 value=19350
-index=123 key=1270 value=2540
+index=123 key=3467 value=6934
 index=124 key=8387 value=16774
-index=125 key=735 value=1470
-index=126 key=935 value=1870
-index=127 key=3077 value=6154
+index=125 key=1970 value=3940
+index=126 key=212 value=424
+index=127 key=8557 value=17114
 index=128 key=5324 value=10648
-index=129 key=526 value=1052
+index=129 key=2901 value=5802
 index=130 key=6323 value=12646
 index=131 key=9353 value=18706
-index=132 key=4523 value=9046
-index=133 key=6752 value=13504
-index=134 key=1606 value=3212
+index=132 key=2214 value=4428
+index=133 key=7348 value=14696
+index=134 key=4928 value=9856
 index=135 key=8238 value=16476
-index=136 key=4419 value=8838
-index=137 key=2863 value=5726
-index=138 key=1826 value=3652
-index=139 key=6210 value=12420
-index=140 key=754 value=1508
+index=136 key=931 value=1862
+index=137 key=5533 value=11066
+index=138 key=774 value=1548
+index=139 key=526 value=1052
+index=140 key=4671 value=9342
 index=141 key=9626 value=19252
+index=142 key=754 value=1508
 index=143 key=990 value=1980
 index=144 key=9081 value=18162
 index=145 key=3937 value=7874
 index=146 key=7941 value=15882
 index=147 key=3814 value=7628
-index=148 key=2703 value=5406
-index=149 key=2407 value=4814
-index=150 key=2568 value=5136
-index=151 key=2753 value=5506
-index=152 key=495 value=990
-index=153 key=3924 value=7848
+index=148 key=735 value=1470
+index=149 key=7419 value=14838
+index=150 key=495 value=990
+index=152 key=6210 value=12420
+index=153 key=3812 value=7624
 index=154 key=7406 value=14812
 index=155 key=4062 value=8124
-index=157 key=7348 value=14696
-index=159 key=5533 value=11066
-index=160 key=5638 value=11276
+index=157 key=8282 value=16564
+index=158 key=1532 value=3064
+index=159 key=245 value=490
+index=160 key=5946 value=11892
+index=161 key=8534 value=17068
 index=162 key=9263 value=18526
 index=163 key=6258 value=12516
-index=164 key=3615 value=7230
-index=165 key=6432 value=12864
+index=164 key=537 value=1074
+index=165 key=6188 value=12376
 index=166 key=9800 value=19600
 index=167 key=7430 value=14860
-index=168 key=2249 value=4498
-index=169 key=618 value=1236
-index=170 key=6150 value=12300
+index=170 key=2254 value=4508
 index=171 key=4558 value=9116
 index=172 key=6127 value=12254
-index=173 key=259 value=518
+index=173 key=5793 value=11586
 index=174 key=8587 value=17174
 index=175 key=6069 value=12138
-index=176 key=192 value=384
-index=177 key=945 value=1890
-index=179 key=1921 value=3842
-index=180 key=7553 value=15106
-index=181 key=931 value=1862
-index=182 key=3712 value=7424
-index=183 key=1647 value=3294
-index=184 key=1572 value=3144
+index=176 key=6752 value=13504
+index=177 key=5578 value=11156
+index=178 key=880 value=1760
+index=180 key=434 value=868
+index=181 key=3840 value=7680
+index=182 key=314 value=628
+index=183 key=1826 value=3652
+index=184 key=812 value=1624
+index=185 key=4523 value=9046
 index=186 key=7572 value=15144
-index=188 key=8557 value=17114
+index=188 key=6432 value=12864
 index=189 key=6053 value=12106
-index=190 key=2927 value=5854
+index=190 key=1544 value=3088
 
-Double Hashing probing 680 collisions
+Double Hashing probing 666 collisions
 
-*** Double Hashing probing Descending Order End ***
+*** Double Hashing Probing Descending Order end ***
 
