@@ -1,34 +1,3 @@
-// If the generic classes and interfaces seem too complex, just write a code
-// that works with concrete classes and int or Integer keys and values.
-//
-// Some languages do not require to specify variable/function types but you 
-// shall specify types (or hints) if possible.
-//
-// If the language requires it, use int where plain number is enough and use 
-// a pointer to int or Integer type where the value can be a number or the null. 
-//
-// Use const or final instead of constant keyword if the language supports it. Otherwise 
-// diregard (omit) it.
-//
-// & and * in variable definitions are C++ specific hints. Disregard them
-// if using other languages.
-//
-// In value1 EQUAL value2, you must use language specific comparison that compares
-// values data, not just references. For example, in the case of Java Integer type,
-// value1 == value2 compares two references and so cannot be used.
-//
-// Some languages do not have null keyword and so you need to replace it appropriately.
-// For example, use nullptr in C++.
-//
-// Some languages have vectors. If not, replace vector with an appropriate array type.
-//
-// INPUT_STREAM and OUTPUT_STREAM are to be replaced with language specific
-// input/output streams. Replace stdout with a stream corresponding the standard
-// output (usually your terminal or console).
-//
-// stream << expression means write the expression value as text to the stream.
-// stream >> variable means read from the stream, convert from text, and assign to 
-// the variable. Replace << and >> with appropriate language constructs. 
 #include "LinearProbingHash.h"
 #include "QuadraticProbingHash.h"
 #include "DoubleHashingProbingHash.h"
