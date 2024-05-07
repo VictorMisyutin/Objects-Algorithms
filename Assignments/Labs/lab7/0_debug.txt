@@ -1,0 +1,22 @@
+--- RSAAlgorithm
+P q 7
+e 37
+e 257
+n 259
+d 137
+
+*** Encrypting 0_in.dat, size 1 -> 0_encrypted.txt * **
+
+--- RSACodec::encryptStream block #0, max length 1 ---
+
+BlockReader::readData - Requested count 1 bytes, got
+[0] 'A' 
+BlockReader::readData - Read 0x41as 1 bytes
+
+RSAAlgorithm::encrypt 0x41 -> 0x97
+
+Encrypted file 0_encrypted.txt size is 1
+
+[0] 'A' 
+***Decrypting 0_encrypted.txt, 1 -> 0_decrypted.dat * **
+
