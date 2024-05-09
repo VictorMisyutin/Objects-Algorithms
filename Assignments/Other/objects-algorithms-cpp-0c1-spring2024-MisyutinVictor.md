@@ -44,7 +44,7 @@ What are your plans with computer science?
 
 
 11) What are your recommendations to me?
-    **None**
+    **Other than maybe holding office hours, none.**
 
 
 12) Can I use your work as an example for my future students in my future teaching? (yes/no): 
